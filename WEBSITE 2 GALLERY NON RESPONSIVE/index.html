@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maputo Gallery</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <!-- FOR IMAGE FULL WHEN CLICK -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- FOR IMAGE FULL WHEN CLICK -->
+</head>
+
+<body>
+    <header>
+        <section class="header-container">
+            <div class="header-logo">
+                <h3>ma<span>pu</span>to<span> .</span></h3>
+            </div>
+            <div class="header-nav">
+            </div>
+        </section>
+    </header>
+    <main>
+        <section class="photo-gallery">
+            <div class="photo-container-first">
+                <h1 class="photo-header">at Work</h1>
+                <div class="row">
+                    <div class="column">
+                        <img class="photo" src="Website 2/At Work/1atwork5.jpg" alt="Snow"
+                            style="width:100%; height: 100%;cursor: pointer;" onclick="onClick(this)">
+                    </div>
+                    <div class="column">
+                        <img class="photo" src="Website 2/At Work/1atwork6.jpg" alt="Forest"
+                            style="width:100%; height: 100%;cursor: pointer;" onclick="onClick(this)">
+                    </div>
+                    <div class="column">
+                        <img class="photo" src="Website 2/At Work/1atwork2.jpg" alt="Mountains"
+                            style="width:100%; height: 100%;cursor: pointer;" onclick="onClick(this)">
+                    </div>
+                    <div class="column">
+                        <img class="photo" src="Website 2/At Work/1atwork8.jpg" alt="Mountains"
+                            style="width:100%; height: 100%;cursor: pointer;" onclick="onClick(this)">
+                    </div>
+                </div>
+                <div class="button-more">
+                    <button><a href="atwork.html">See more</a></button>
+                </div>
+            </div>
+
+            <div class="photo-container">
+                <h1 class="photo-header">at Cangar</h1>
+                <div class="row">
+                    <div class="column">
+                        <img class="photo" src="Website 2/Cangar 2019/cangar201913.jpg" alt="Snow"
+                            style="width:100%; height: 100%;cursor: pointer;" onclick="onClick(this)">
+                    </div>
+                    <div class="column">
+                        <img class="photo" src="Website 2/Cangar 2019/cangar201928.jpg" alt="Forest"
+                            style="width:100%; height: 100%;cursor: pointer;" onclick="onClick(this)">
+                    </div>
+                    <div class="column">
+                        <img class="photo" src="Website 2/Cangar 2019/cangar20194.jpg" alt="Mountains"
+                            style="width:100%; height: 100%;cursor: pointer;" onclick="onClick(this)">
+                    </div>
+                    <div class="column">
+                        <img class="photo" src="Website 2/Cangar 2019/cangar20192.jpg" alt="Mountains"
+                            style="width:100%; height: 100%;cursor: pointer;" onclick="onClick(this)">
+                    </div>
+                </div>
+                <div class="button-more">
+                    <button><a href="#">See more</a></button>
+                </div>
+            </div>
+
+            <!-- FOR IMAGE FULL WHEN CLICK -->
+            <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                <div class="w3-modal-content w3-animate-zoom">
+                    <img id="img01" style="width:100%">
+                </div>
+            </div>
+            <!-- FOR IMAGE FULL WHEN CLICK -->
+        </section>
+    </main>
+    <!-- FOR IMAGE FULL WHEN CLICK -->
+    <script>
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+        }
+    </script>
+    <!-- FOR IMAGE FULL WHEN CLICK -->
+</body>
+
+</html>

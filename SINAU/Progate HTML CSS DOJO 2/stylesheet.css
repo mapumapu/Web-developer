@@ -1,0 +1,195 @@
+/* Reset CSS (DO NOT DELETE) */
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Lucida Grande";
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Write your code below */
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  background-color: rgba(34, 49, 52, 0.9);
+}
+
+.header-logo {
+  float: left;
+  margin-top: 20px;
+}
+
+.header-logo img {
+  width: 124px;
+}
+
+.header-login {
+  float: right;
+  padding: 0 25px;
+  line-height: 65px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.header-login a {
+  color: white;
+  display: block;
+}
+
+.header-login:hover {
+  transition: all 0.5s;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.main-top {
+  padding: 180px 0 100px 0;
+  background-image: url(https://prog-8.com/images/html/advanced/top_en.png);
+  background-size: cover;
+  text-align: center;
+  color: white;
+
+}
+
+.main-top h1 {
+  font-size: 45px;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+.main-top p {
+  opacity: 0.7;
+}
+
+.btn-signup {
+  margin: 20px 0;
+}
+
+.btn-signup p {
+  margin: 10px 0;
+}
+
+.btn {
+  border-radius: 4px;
+  padding: 12px 24px;
+  opacity: 0.8;
+  display: inline-block;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.btn span {
+  margin-right: 5px;
+}
+
+.email {
+  background-color: #239b76;
+}
+
+.facebook {
+  background-color: #3b5998;
+}
+
+.twitter {
+  background-color: #55acee;
+}
+
+.main-middle {
+  padding-bottom: 80px;
+  text-align: center;
+  background-color: #f7f7f7;
+  height: 500px;
+}
+
+.middle-heading {
+  padding: 60px 0 30px 0;
+}
+
+.middle-heading h2 {
+  font-weight: normal;
+  color: #5f5d60;
+}
+
+.lesson {
+  float: left;
+  width: 25%;
+}
+
+.lesson-logo {
+  position: relative;
+}
+
+.lesson-logo p {
+  position: absolute;
+  width: 100%;
+  top: 90px;
+  color: white;
+}
+
+.lesson-desc {
+  color: #b3aeb5;
+  margin-top: 20px;
+  width: 80%;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.main-bottom {
+  padding-bottom: 80px;
+  border: 1px solid #eee;
+  text-align: center;
+}
+
+.bottom-heading {
+  padding: 60px 0 30px 0;
+  color: #5f5d60;
+}
+
+.bottom-heading h2 {
+  font-weight: normal;
+}
+
+.message {
+  background-color: #5dca88;
+  opacity: 0.8;
+  padding: 15px 40px;
+  box-shadow: 0 7px #1a7940;
+}
+
+.message:active {
+  box-shadow: none;
+  position: relative;
+  top: 7px;
+}
+
+footer {
+  padding-top: 30px;
+}
+
+footer img {
+  width: 124px;
+}
+
+footer p {
+  font-size: 12px;
+  color: #b3aeb5;
+}

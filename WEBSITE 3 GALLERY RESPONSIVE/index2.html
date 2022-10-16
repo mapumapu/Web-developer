@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container">
+  <h2>Active Tabs</h2>
+  <p>To highlight the current tab/page the user is on, add a color class, and use JavaScript to update the active link.</p>
+
+  <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event,'city','London','tablink')">London</button>
+    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'city','Paris', 'tablink')">Paris</button>
+    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'city','Tokyo','tablink')">Tokyo</button>
+  </div>
+  
+  
+  
+  
+  <div id="London" class="w3-container w3-border city">
+<div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button tablink3 w3-red" onclick="openCity(event,'city3','London3','tablink3')">London</button>
+    <button class="w3-bar-item w3-button tablink3" onclick="openCity(event,'city3','Paris3','tablink3')">Paris</button>
+        <button class="w3-bar-item w3-button tablink3" onclick="openCity(event,'city3','toto3','tablink3')">toto</button>
+            <button class="w3-bar-item w3-button tablink3" onclick="openCity(event,'city3','titi3','tablink3')">titi</button>
+  </div>
+  
+    <div id="London3" class="w3-container w3-border city3">
+<h2>London2</h2>
+  </div>
+
+  <div id="Paris3" class="w3-container w3-border city3" style="display:none">
+    <h2>Paris</h2>
+    <p>Paris is the capital of France.</p> 
+  </div>
+    <div id="toto3" class="w3-container w3-border city3" style="display:none">
+    <h2>toto</h2>
+    <p>Paris is the capital of France.</p> 
+  </div>
+    <div id="titi3" class="w3-container w3-border city3" style="display:none">
+    <h2>titi</h2>
+    <p>Paris is the capital of France.</p> 
+  </div>
+
+
+
+  </div>
+
+
+
+
+  <div id="Paris" class="w3-container w3-border city" style="display:none">
+    <h2>Paris</h2>
+    <p>Paris is the capital of France.</p> 
+  </div>
+
+  <div id="Tokyo" class="w3-container w3-border city" style="display:none">
+  
+<div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button tablink2 w3-red" onclick="openCity(event,'city2','London2','tablink2')">London</button>
+    <button class="w3-bar-item w3-button tablink2" onclick="openCity(event,'city2','Paris2','tablink2')">Paris</button>
+        <button class="w3-bar-item w3-button tablink2" onclick="openCity(event,'city2','toto','tablink2')">toto</button>
+            <button class="w3-bar-item w3-button tablink2" onclick="openCity(event,'city2','titi','tablink2')">titi</button>
+  </div>
+  
+    <div id="London2" class="w3-container w3-border city2">
+<h2>London2</h2>
+  </div>
+
+  <div id="Paris2" class="w3-container w3-border city2" style="display:none">
+    <h2>Paris</h2>
+    <p>Paris is the capital of France.</p> 
+  </div>
+    <div id="toto" class="w3-container w3-border city2" style="display:none">
+    <h2>toto</h2>
+    <p>Paris is the capital of France.</p> 
+  </div>
+    <div id="titi" class="w3-container w3-border city2" style="display:none">
+    <h2>titi</h2>
+    <p>Paris is the capital of France.</p> 
+  </div>
+  
+  
+  </div>
+</div>
+
+<script>
+function openCity(evt, tabBarName, cityName, tablinkName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName(tabBarName);
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName(tablinkName);
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+
+</body>
+</html>

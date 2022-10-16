@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.top {
+    background-image: url('1.jpg');   
+}
+
+.middle {
+    background-image: url('2.jpg');
+    height: 110vh;
+}
+
+.bottom {
+    background-image: url('3.jpg');
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    font-size: 50px;
+    color: white;
+    letter-spacing: 15px;
+}
+
+

@@ -1,0 +1,369 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* header logo */
+header {
+  background-color: white;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 75px;
+  display: inline-block;
+  margin: 0;
+  padding-top: 1.25%;
+  padding-bottom: 1.5%;
+  color: #212529;
+}
+
+header span {
+  color: lightblue;
+}
+
+/* main body */
+
+body {
+  margin: 0 7% 0 7%;
+  background-color: #212529;
+}
+
+.main-content {
+  background-color: white;
+}
+
+/* Nav tab and nested tab */
+.tab-container, .nested-tab-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 6% 0 6%;
+}
+
+.tab-container button, .nested-tab-container button {
+  background-color: #212529;
+  padding: 1.5% 2%;
+  font-weight: 700;
+  color: white;
+  width: 100%;
+  text-align: center;
+  transition: all .5s;
+  cursor: pointer;
+  font-size: 17.5px;
+  letter-spacing: 2.5px;
+  border: none;
+}
+
+.tab-container button:first-child {
+  border-top-left-radius: 10px;
+}
+
+.tab-container button:last-child {
+  border-top-right-radius: 10px;
+}
+
+.nested-tab-container button:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.nested-tab-container button:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.nested-tab-container button {
+  padding: 2% 0;
+  font-size: 16px;
+}
+
+.tab-container button:hover {
+  background-color: white;
+  color: #212529;
+}
+
+.nested-tab-container button:hover {
+  background-color: white;
+  color: #212529;
+}
+
+[data-tabs]>[role="tab"][aria-selected="true"] {
+  background-color: white;
+  color: #212529;
+}
+
+i span {
+  margin-left: 8px;
+}
+
+/* Picture page */
+
+.photo-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 5%;
+}
+
+.photo-container li {
+  height: 30vh;
+  flex-grow: 1;
+  list-style: none;
+  margin: 5px;
+}
+
+.photo-container li:last-child {
+  flex-grow: 10;
+  margin-bottom: 5%;
+}
+
+.photo-container img {
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+  transition: transform .2s;
+  border-radius: 10px;
+  border: 2.5px solid #212529;
+}
+
+.photo-container img:hover {
+  transform: scale(1.5);
+}
+
+/* About me page */
+.about-me {
+  height: 200vh;
+}
+
+.about-tab {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.about-tab img {
+  width: 50%;
+  margin: 5%;
+  border: 5px solid #212529;
+  flex-grow: 1;
+  border-radius: 15px;
+}
+
+.profile-desc {
+  margin: 5% 5% 0 0;
+  width: 50%;
+}
+
+.profile-desc h2 {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.profile-desc h3 {
+  font-size: 25px;
+}
+
+.profile-desc p {
+  font-size: 20px;
+}
+
+.contact-info {
+  margin-top: 35px;
+  border-top: 2px solid;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: #212529;
+  font-size: 36px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+
+/* Back to top button */
+#myBtn {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Fixed/sticky position */
+  bottom: 20px;
+  /* Place the button at the bottom of the page */
+  right: 30px;
+  /* Place the button 30px from the right */
+  z-index: 99;
+  /* Make sure it does not overlap */
+  border: none;
+  /* Remove borders */
+  outline: none;
+  /* Remove outline */
+  background-color: black;
+  /* Set a background color */
+  color: white;
+  /* Text color */
+  cursor: pointer;
+  /* Add a mouse pointer on hover */
+  padding: 15px;
+  /* Some padding */
+  border-radius: 10px;
+  /* Rounded corners */
+  font-size: 18px;
+  /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555;
+  /* Add a dark-grey background on hover */
+}
+
+
+/* responsive web */
+/* laptop view */
+@media screen and (max-width:1366px) {
+  .profile-desc h2 {
+    font-size: 32px;
+  }
+
+  .profile-desc h3 {
+    font-size: 21px;
+  }
+
+  .profile-desc p {
+    font-size: 15px;
+  }
+}
+
+/* @media screen and (min-width:1024px){
+  .photo-container img {
+    transition: transform .2s;
+  }
+  
+  .photo-container img:hover {
+    transform: scale(1.5);
+  }
+} */
+
+/* tablet view */
+@media screen and (max-width:1024px) {
+  .photo-container li {
+    height: 25vh;
+  }
+
+  .about-me {
+    margin: 0 5% 0 5%;
+  }
+
+  .about-tab {
+    flex-wrap: wrap;
+  }
+
+  .about-tab img {
+    width: 250px;
+    height: 500px;
+    object-fit: cover;
+    object-position: 50%;
+    margin-bottom: 0;
+  }
+
+  .profile-desc {
+    flex-grow: 1;
+    border-top: 2px solid #212529;
+  }
+
+  .profile-desc h2 {
+    margin-top: 15px;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+}
+
+@media (max-width:1024px) and (max-height:1366px) {
+  .photo-container li {
+    height: 15vh;
+  }
+}
+
+@media (max-width:1024px) and (max-height:768px) {
+  .photo-container li {
+    height: 25vh;
+  }
+}
+
+/* mobile view */
+@media screen and (max-width:600px) {
+  body {
+    margin: 0;
+  }
+
+  header h1 {
+    font-size: 60px;
+  }
+
+  .tab-container, .nested-tab-container {
+    margin: 0 2% 0 2%;
+  }
+
+  .tab-container button {
+    font-size: 13px;
+    padding: 4% 0;
+  }
+
+  .nested-tab-container button {
+    font-size: 10px;
+    padding: 5% 0;
+  }
+
+  .photo-container {
+    flex-direction: row;
+  }
+
+  .photo-container li {
+    height: auto;
+
+  }
+
+  .photo-container img {
+    width: 100%;
+    max-height: 25vh;
+  }
+
+  .about-tab {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .about-tab img {
+    width: 50%;
+    height: 50%;
+    margin-bottom: 0;
+  }
+
+  .profile-desc {
+    flex-grow: 1;
+    border-top: 2px solid #212529;
+  }
+
+  .profile-desc h2 {
+    font-size: 20px;
+    margin-top: 15px;
+  }
+
+  .profile-desc h3 {
+    font-size: 15px;
+  }
+
+  .profile-desc p {
+    font-size: 12.5px;
+  }
+
+  .contact-info a {
+    font-size: 30px;
+  }
+
+}

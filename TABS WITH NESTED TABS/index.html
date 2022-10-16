@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <div data-tabs>
+        <button>Tab1</button>
+        <button>Tab2</button>
+        <button>Tab3</button>
+    </div>
+
+    <div data-panes>
+        <div>Pane1</div>
+        <div>
+            <div data-tabs>
+                <button>Tab4</button>
+                <button>Tab5</button>
+            </div>
+
+            <div data-panes>
+                <div><section>
+                    <h1> Picture</h1>
+                    <div class="image-container">
+                        <img src="Random Photo/img1.jpg" alt="" class="img1">
+                        <img src="Random Photo/img2.jpg" alt="" class="img2">
+                        <img src="Random Photo/img3.jpg" alt="" class="img3">
+                        <img src="Random Photo/img4.jpg" alt="" class="img4">
+                    </div>
+                    <a href="#">See more</a>
+                </section></div>
+                <div>Pane5</div>
+            </div>
+        </div>
+        <div>Pane3</div>
+    </div>
+    <script src="tabbis.es6.js"></script>
+    <script>
+        tabbis({
+          memory: true
+        });
+      </script>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Lucida Console";
+}
+
+a {
+    text-decoration: none;
+
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    top: 0;
+    padding-bottom: 50px;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    border-bottom: 2px solid red;
+}
+
+.header-left span {
+    color: #E6E8E6;
+}
+
+.header-left {
+    float: left;
+    letter-spacing: 15px;
+}
+
+.header-left p {
+    font-size: 40px;
+    margin-top: 25px;
+    margin-bottom: -5px;
+    margin-left: 150px;
+    color: #080708;
+}
+
+.header-right {
+    float: right;
+    margin-right: 150px;
+}
+
+.header-right a {
+    line-height: 100px;
+    padding: 0 25px;
+    color: #080708;
+    display: block;
+    float: left;
+    transition: all 0.5s;
+    font-size: 20px;
+}
+
+.header-right a:hover {
+    background-color: #E6E8E6;
+}
+
+.main-1 {
+    padding-top: 300px;
+    text-align: center;
+    padding-bottom: 100px;
+    background-image: url("gambar 1.jpg");
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: 1750px;
+    color: white;
+}
+
+.main-1 h1 {
+    font-size: 75px;
+    margin-bottom: 100px;
+}
+
+.main-1 h2 {
+    font-size: 40px;
+}
+
+.btn-signup {
+    margin: 20px 0;
+    margin-top: 125px;
+    padding-bottom:50px
+  }
+  
+  .btn-signup p {
+    margin: 25px 0;
+  }
+  
+  .btn {
+    border-radius: 4px;
+    padding: 12px 24px;
+    opacity: 0.8;
+    display: inline-block;
+    color: white;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  
+  .btn span {
+    margin-right: 5px;
+  }
+  
+  .email {
+    background-color: #239b76;
+  }
+  
+  .facebook {
+    background-color: #3b5998;
+    margin-right: 50px;
+  }
+  
+  .twitter {
+    background-color: #55acee;
+  }
+
+
+.top {
+    background-color: red;
+    height: 75px;
+    border-bottom: 2px solid black;
+    padding: 15px 15px;
+}
+
+.top-right {
+    float: left;
+    margin-left: 75px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.top-right a {
+    color: pink;
+}
+
+.top-right a:hover {
+    color: white;
+}
+
+.top-left {
+    float: right;
+    margin-top: 15px;
+    padding-right: 75px;
+}
+
+.top-left img {
+    margin: 0 20px;
+}
+
+.flex-box {
+    display: flex;
+    padding: 45px 0;
+    background-color: #080708;
+}
+
+.flex-box ul {
+    flex: auto;
+    list-style: none;
+}
+
+.flex-box p {
+    color: white;
+    padding: 0 200px;
+    padding-top: 75px;
+    border: 2px solid red;
+}
+
+.flex-box li {
+    color: white;
+    margin: 15px 0;
+    margin-left: 90px;
+    border: 2px solid white;
+    opacity: 0.5;
+}
+
+.flex-box li:hover {
+    opacity: 1;
+    background-color: white;
+}
+
+.flex-box a:hover {
+    color: black;
+}
+
+.flex-box a {
+    display: block;
+}
+
+.flex-box li a {
+    color: white;
+}
+
+
+.list-4 .logo {
+    letter-spacing: 15px;
+    color: black;
+    background-color: red;
+    padding-bottom: 55px;
+    font-size: 25px;
+}
+
+.list-4 .logo span {
+    color: #E6E8E6;
+
+}
+
+.list-4 .copy {
+    text-align: right;
+}
+
