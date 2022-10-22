@@ -1,0 +1,35 @@
+1. DEFINE
+for WHO ?
+-a client
+
+for WHAT ?
+-Bussiness goal : selling monthly food subscription
+-User Goal : Eating well effortlessly, without spending a lot of time and money
+
+TARGET ?
+-Busy people who like technology
+-Interested in a healty diet
+-well-paying job
+
+
+2. PLAN
+-Plan and gather website content DONE
+-Build one-page marketing website, so no sitemap
+
+##WEBSITE PERSONALITY
+-based on tech centered target audience
+use STARTUP/UPBEAT PERSONALITY
+add some CALM/PEACEFUL PERSONALITY
+
+## WEBSITE SECTION
+
+-logo + navigation
+-hero
+-featured in publications
+-how it works
+-meals (and list of diets)
+-testimonial + gallery
+-pricing + features
+-call to action (SIGN UP FORM)
+-Footer  
+
