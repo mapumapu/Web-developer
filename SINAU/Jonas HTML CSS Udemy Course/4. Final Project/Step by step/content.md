@@ -85,7 +85,7 @@ Starter: $399 per month
 
 Complete: $649 per month
 
-- 2 meal2 per day
+- 2 meal per day
 - Order 24/7
 - Delivery is free
 - Get access to latest recipes
@@ -99,8 +99,11 @@ Complete: $649 per month
 [Photos of customers included]
 
 Inexpensive, healthy and great-tasting meals, without even having to order manually! It feels truly magical. (Dave Bryson)
+
 The AI algorithm is crazy good, it chooses the right meals for me every time. It's amazing not to worry about food anymore! (Ben Hadley)
+
 Omnifood is a life saver! I just started a company, so there's no time for cooking. I couldn't live without my daily meals now! (Steve Miller)
+
 I got Omnifood for the whole family, and it frees up so much time! Plus, everything is organic and vegan and without plastic. (Hannah Smith)
 
 ### Section with logos of featured publications [see images]
@@ -119,15 +122,15 @@ Create account
 Sign in
 iOS app
 Android app
+
 About Omnifood
 For Business
 Cooking partners
 Careers
+
 Recipe directory
 Help center
 Privacy & terms
-
-
 
 ####
 
@@ -143,24 +146,22 @@ Privacy & terms
 -call to action
 -Footer
 
-
-
-/* 
+/\*
 ----01. TYPOGRAPHY SYSTEM----
-    
+
     - FONT SIZES (px) :
     10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 
-    -FONT-SIZE : 62,5% on html 
-    
+    -FONT-SIZE : 62,5% on html
+
     - FONT-WEIGHT :
     Default: 400
-    
+
     - LINE-HEIGHT :
     Default: 1
-    
+
 ----02. COLORS----
-    
+
     Primary: #e67e22
     Greys/Text: #555
     Tints:
@@ -168,7 +169,7 @@ Privacy & terms
     Accents:
 
 ----03. IMAGES----
-    
+
     Source: -unsplash.com
             -uifaces.co
 
@@ -179,7 +180,8 @@ Privacy & terms
 ----06. BORDER RADIUS----
 
 ----07. WHITESPACES-----
-    
+
     SPACING SYSTEM (px)
     2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
-*/
+
+\*/
