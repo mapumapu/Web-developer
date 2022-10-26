@@ -10,7 +10,9 @@ store(tokopedia, shoppe, etc e-commerce)
 
 testimoni
 
-gallery kebun
+partnership
+
+gallery kebun, panen, bawang
 
 how to belajar hidroponik
 (bunch of cards)
@@ -19,9 +21,9 @@ training khusus
 
 e-courses
 
-how to reach us
+call to action
 
-cta
+lokasi kebun
 
 
 
