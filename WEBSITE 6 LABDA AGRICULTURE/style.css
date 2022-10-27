@@ -32,7 +32,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 0 4.8rem;
-  background-color: rgba(238, 248, 237, 0.8);
+  background-color: rgba(247, 233, 240, 0.76);
   width: 100%;
   position: absolute;
 }
@@ -52,7 +52,7 @@ nav {
 /* HERO SECTION */
 
 .section-hero {
-  background-image: url("img/hero.jpg");
+  background-image: url("img/bawang.jpg");
   background-size: cover;
 }
 
@@ -66,7 +66,7 @@ nav {
 }
 
 .hero-container {
-  background-color: rgba(238, 248, 237, 0.8);
+  background-color: rgba(247, 233, 240, 0.76);
   padding: 3.2rem 4.8rem 4.8rem 4.8rem;
   border-radius: 11px;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
@@ -76,7 +76,7 @@ nav {
 }
 
 .hero-title {
-  font-size: 7.4rem;
+  font-size: 6.2rem;
 }
 
 .hero-description {
@@ -93,8 +93,9 @@ nav {
 .btn:link,
 .btn:visited {
   font-size: 2.4rem;
+  font-weight: 600;
   text-decoration: none;
-  background-color: #57ba46;
+  background-color: #aa2064;
   color: #fff;
   padding: 1.2rem 2.4rem;
   border-radius: 11px;
@@ -104,7 +105,8 @@ nav {
 
 .btn:hover,
 .btn:active {
-  background-color: #3d8231;
+  background-color: #ffcc23;
+  color: #333;
 }
 
 /* WHAT IS SECTION */
@@ -129,7 +131,7 @@ nav {
 }
 
 .what-is-title {
-  font-size: 6.2rem;
+  font-size: 5.2rem;
 }
 
 .what-is-description {
