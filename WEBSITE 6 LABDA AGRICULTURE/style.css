@@ -159,7 +159,7 @@ nav {
 /* FEATURED SECTION */
 
 .section-featured {
-  background-color: rgba(213, 144, 178, 0.445);
+  background-color: rgba(213, 144, 178, 0.14);
 }
 
 .featured-container {
@@ -186,7 +186,7 @@ nav {
 }
 
 .featured-text-box {
-  align-self: center;
+  /* align-self: center; */
 }
 
 .heading-tertiary {
