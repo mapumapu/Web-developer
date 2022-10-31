@@ -1,3 +1,6 @@
+"use strict";
+
+//JavaScript Fundamental 1
 //Challege 1
 // const markMass = 78;
 // const markHeight = 1.69;
@@ -83,3 +86,32 @@ const tip = bill >= 50 && bill <= 300 ? (bill * 15) / 100 : (bill * 20) / 100;
 console.log(
   `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`
 );
+
+//JavaScript Fundamental 2
+//Challenge 1
+
+const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+
+function checkWinner(averageDolphins, averageKoalas) {
+  if (averageDolphins >= 2 * averageKoalas) {
+    console.log(`Dolphins Wins ${averageDolphins} vs ${averageKoalas}`);
+  } else if (averageKoalas >= 2 * averageDolphins) {
+    console.log(`Koalas Wins ${averageKoalas} vs ${averageDolphins}`);
+  } else {
+    console.log(
+      `No one wins... sad. Dolphins (${averageDolphins}) vs Koalas (${averageKoalas}))`
+    );
+  }
+}
+
+const averageDolphins = calcAverage(44, 23, 71);
+const averageKoalas = calcAverage(65, 54, 49);
+checkWinner(averageDolphins, averageKoalas);
+
+const averageDolphins2 = calcAverage(85, 54, 41);
+const averageKoalas2 = calcAverage(23, 34, 27);
+checkWinner(averageDolphins2, averageKoalas2);
+
+const averageDolphins3 = calcAverage(100, 25, 15);
+const averageKoalas3 = calcAverage(90, 100, 95);
+checkWinner(averageDolphins3, averageKoalas3);

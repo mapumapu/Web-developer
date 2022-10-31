@@ -1,3 +1,5 @@
+"use strict";
+
 // Values and Variable
 
 const country = "Indonesia";
@@ -118,3 +120,63 @@ switch (language) {
 console.log(
   `${country}'s population is ${population > 33 ? "above" : "below"} average`
 );
+
+//Functions
+
+function describeCountry(country, population, capitalCity) {
+  const describe = `${country} has ${population} millions people and its capital city is ${capitalCity}`;
+  return describe;
+}
+
+// const indonesia = describeCountry("Indonesia", 200, "Jakarta");
+// const singapore = describeCountry("Singapore", 5, "Singapore");
+// const spanyol = describeCountry("Spanyol", 25, "Madrid");
+
+// console.log(indonesia);
+// console.log(singapore);
+// console.log(spanyol);
+
+//Function Declaration vs. Expressions
+
+function percentageOfWorld1(population) {
+  return (population / 7900) * 100;
+}
+
+const indonesia = percentageOfWorld1(200);
+const singapore = percentageOfWorld1(5);
+const spanyol = percentageOfWorld1(25);
+
+console.log(indonesia, singapore, spanyol);
+
+const percentageOfWorld2 = function (population) {
+  return (population / 7900) * 100;
+};
+
+const indonesia2 = percentageOfWorld2(200);
+const singapore2 = percentageOfWorld2(5);
+const spanyol2 = percentageOfWorld2(25);
+
+console.log(indonesia2, singapore2, spanyol2);
+
+//Arrow Function
+
+const percentageOfWorld3 = (population) => (population / 7900) * 100;
+const indonesia3 = percentageOfWorld3(200);
+const singapore3 = percentageOfWorld3(5);
+const spanyol3 = percentageOfWorld3(25);
+
+console.log(indonesia3, singapore3, spanyol3);
+
+//Function Calling Other Function
+//Using function i create earlier which is percentageWorld1
+
+function describePopulation(country, population) {
+  const percentageOfWorld = percentageOfWorld1(population);
+
+  const describe = `${country} has ${population} million people, which is about ${percentageOfWorld}% of the world`;
+  return describe;
+}
+
+console.log(describePopulation("Indonesia", 276.4));
+console.log(describePopulation("Malaysia", 32.78));
+console.log(describePopulation("Thailand", 69.95));
