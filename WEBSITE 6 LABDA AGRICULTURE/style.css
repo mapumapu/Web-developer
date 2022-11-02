@@ -23,7 +23,7 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #555;
-  background-color: rgba(238, 210, 224, 0.226);
+  background-color: #fff;
 }
 
 /* HEADER NAV */
@@ -177,6 +177,8 @@ nav {
   grid-template-columns: 1fr 1fr;
   padding-top: 9.6rem;
   padding-bottom: 9.6rem;
+  padding-left: 4.8rem;
+  padding-right: 4.8rem;
 }
 
 .featured-box:last-child {
