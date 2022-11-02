@@ -180,3 +180,16 @@ function describePopulation(country, population) {
 console.log(describePopulation("Indonesia", 276.4));
 console.log(describePopulation("Malaysia", 32.78));
 console.log(describePopulation("Thailand", 69.95));
+
+//Introduction to Array
+
+const populations = [200, 5, 25, 50];
+
+const percentages = [
+  percentageOfWorld1(populations[0]),
+  percentageOfWorld1(populations[1]),
+  percentageOfWorld1(populations[2]),
+  percentageOfWorld1(populations[3]),
+];
+
+console.log(populations, percentages);
