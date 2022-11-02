@@ -53,12 +53,17 @@ nav {
 
 .section-hero {
   /* background-image: ; */
-  background: linear-gradient(
+  /* background: linear-gradient(
+    to right,
+    rgba(51, 51, 51, 0.924),
+    rgba(51, 51, 51, 0)
+  ); */
+  /* background: linear-gradient(
       to right,
       rgba(51, 51, 51, 0.924),
       rgba(51, 51, 51, 0)
     ),
-    url(img/bawang-mirror.webp);
+    url(img/bawang-mirror.webp); */
   background-size: cover;
   height: 110vh;
   display: flex;
@@ -72,6 +77,11 @@ nav {
   /* align-items: center; */
   /* row-gap: 2.4rem; */
   /* flex-direction: row; */
+  background: linear-gradient(
+    to right,
+    rgba(51, 51, 51, 0.924),
+    rgba(51, 51, 51, 0)
+  );
 }
 
 .hero-container {
