@@ -193,3 +193,22 @@ const percentages = [
 ];
 
 console.log(populations, percentages);
+
+//Basic Array Operations(Methods)
+
+const countryNeighbours = ["Singapore", "Malaysia", "Brunei"];
+console.log(countryNeighbours);
+
+countryNeighbours.push("Utopia");
+console.log(countryNeighbours);
+
+countryNeighbours.pop();
+console.log(countryNeighbours);
+
+if (!countryNeighbours.includes("Germany")) {
+  console.log("Not central europe country");
+}
+
+const removeCountry = countryNeighbours.indexOf("Malaysia");
+countryNeighbours[removeCountry] = "Negara Malaysia";
+console.log(countryNeighbours);

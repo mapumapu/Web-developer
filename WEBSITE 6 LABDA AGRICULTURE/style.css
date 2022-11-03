@@ -131,10 +131,11 @@ nav {
 /* SPECIAL-SECTION */
 
 .section-special {
-  margin-top: 9.6rem;
-  margin-bottom: 9.6rem;
+  padding-top: 9.6rem;
+  padding-bottom: 6.4rem;
   padding-left: 4.8rem;
   padding-right: 4.8rem;
+  background-color: #f7f2f4;
 }
 
 .special-container {
@@ -240,9 +241,10 @@ nav {
   margin-bottom: 9.6rem;
 }
 
-/* .product-heading {
+.product-heading {
   text-align: center;
-} */
+  /* margin-bottom: 2.4rem; */
+}
 
 .product-container {
   display: grid;
