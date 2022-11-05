@@ -20,10 +20,10 @@
     <img class="logo" src="img/logo-crop-transparent.png" alt="">
 
     <nav>
-      <div>SECTION 1</div>
-      <div>SECTION 2</div>
-      <div>SECTION 3</div>
-      <div>SECTION 4</div>
+      <a href="#marketplace" class="nav-link">Marketplace</a>
+      <a href="#about-us" class="nav-link">About us</a>
+      <a href="#" class="nav-link">How We Farm</a>
+      <a href="#contact-us" class="nav-link">Contact us</a>
     </nav>
   </header>
   <main>
@@ -35,28 +35,14 @@
             With Labda Agriculture as your source for shallots, you'll enhance your foods production with a variety of
             flavors and more healtier food.
           </p>
-          <div class="hero-btn"><a href="#" class="hero btn">Find out more</a></div>
+          <div class="hero-btn"><a href="#marketplace" class="hero btn">Find out more</a></div>
         </div>
       </div>
     </section>
 
-    <section class="section-special">
-      <div class="special-container">
-        <img src="img/undraw_farm_girl_dnpe.svg" alt="">
-        <div class="special-text-box">
-          <h2 class="heading-secondary">What makes our shallots so special?</h2>
-          <p class="special-description">
-            Our family bussines, Labda agriculture is a producer of the highest quality
-            shallots. We are proud to produce the finest shallots in Nganjuk. Using hydroponic farming, we produce a
-            fresher, healtier, and
-            enviromentally friendly farming.
-          </p>
-        </div>
-        <img src="img/undraw_environment_iaus.svg" alt="">
-      </div>
-    </section>
 
-    <section class="section-product">
+
+    <section class="section-product" id="marketplace">
       <h2 class="heading-secondary product-heading">
         <ion-icon name="bag-outline" class="product-icon"></ion-icon>Marketplace
       </h2>
@@ -160,6 +146,22 @@
       </div>
     </section>
 
+    <section class="section-special" id="about-us">
+      <div class="special-container">
+        <img src="img/undraw_farm_girl_dnpe.svg" alt="">
+        <div class="special-text-box">
+          <h2 class="heading-secondary">What makes our shallots so special?</h2>
+          <p class="special-description">
+            Our family bussines, Labda agriculture is a producer of the highest quality
+            shallots. We are proud to produce the finest shallots in Nganjuk. Using hydroponic farming, we produce a
+            fresher, healtier, and
+            enviromentally friendly farming.
+          </p>
+        </div>
+        <img src="img/undraw_environment_iaus.svg" alt="">
+      </div>
+    </section>
+
     <section class="section-featured">
       <div class="featured-container">
         <div class="featured-box">
@@ -253,6 +255,54 @@
       </div>
     </section>
 
+    <footer>
+      <div class="footer-container" id="contact-us">
+        <img class="footer-logo" src="img/logo-crop-transparent.png" alt="">
+        <div class="address">
+          <p>Address:</p>
+          <p>Jalan Ciko No 6969 Desa Kucing</p>
+          <p>Kec. Ningtyas, Kota Nganjuk</p>
+          <p>Jawa Timur, Indonesia</p>
+        </div>
+        <div class="contact">
+          <p class="contact-title">Contact us</p>
+          <div class="social-media-container">
+            <a href="#" class="footer-link">
+              <ion-icon name="logo-instagram" class="footer-icon"></ion-icon>
+            </a>
+            <a href="#" class="footer-link">
+              <ion-icon name="logo-facebook" class="footer-icon"></ion-icon>
+            </a>
+            <a href="#" class="footer-link">
+              <ion-icon name="logo-whatsapp" class="footer-icon"></ion-icon>
+            </a>
+            <a href="#" class="footer-link">
+              <ion-icon name="logo-youtube" class="footer-icon"></ion-icon>
+            </a>
+            <a href="#" class="footer-link">
+              <ion-icon name="mail-outline" class="footer-icon"></ion-icon>
+            </a>
+          </div>
+        </div>
+        <div class="nav-list">
+          <ul>
+            <li><a href="#" class="footer-link">SECTION</a></li>
+            <li><a href="#" class="footer-link">SECTION</a></li>
+            <li><a href="#" class="footer-link">SECTION</a></li>
+            <li><a href="#" class="footer-link">SECTION</a></li>
+          </ul>
+        </div>
+        <div class="nav-list">
+          <ul>
+            <li><a href="#" class="footer-link">SECTION</a></li>
+            <li><a href="#" class="footer-link">SECTION</a></li>
+            <li><a href="#" class="footer-link">SECTION</a></li>
+            <li><a href="#" class="footer-link">SECTION</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
 
   </main>
   <script src="easy_background.js"></script>
@@ -281,12 +331,11 @@
     ScrollReveal().reveal(".product-cards img", { delay: 300 });
     ScrollReveal().reveal(".product-text-box", { delay: 300 });
     ScrollReveal().reveal(".product-icon", { delay: 300 });
-    ScrollReveal().reveal(".product-price", { delay: 300 });
     ScrollReveal().reveal(".product-btn", { delay: 300 });
     //Featured Section
     ScrollReveal().reveal(".featured-img:nth-child(1)", { delay: 300 });
     ScrollReveal().reveal(".featured-img:nth-child(2)", { delay: 300 });
-    ScrollReveal().reveal(".featured-text-box-container", { delay: 500 });
+    ScrollReveal().reveal(".featured-text-box-container", { delay: 300 });
 
   </script>
 </body>
