@@ -63,11 +63,11 @@ function easy_background(selector, sld_args) {
       sld_args.transition_duration +
       "ms " +
       sld_args.transition_timing;
-    document.querySelector(selector).style.WebkitTransition = transition;
-    document.querySelector(selector).style.MozTransition = transition;
-    document.querySelector(selector).style.MsTransition = transition;
-    document.querySelector(selector).style.OTransition = transition;
-    document.querySelector(selector).style.transition = transition;
+    // document.querySelector(selector).style.WebkitTransition = transition;
+    // document.querySelector(selector).style.MozTransition = transition;
+    // document.querySelector(selector).style.MsTransition = transition;
+    // document.querySelector(selector).style.OTransition = transition;
+    // document.querySelector(selector).style.transition = transition;
   }, 100);
 
   //this n is number of row  in object - if first row one function if more than 1 then other

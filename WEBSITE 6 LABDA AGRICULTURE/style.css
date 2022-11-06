@@ -126,6 +126,18 @@ nav {
   align-self: flex-start;
 }
 
+.btn {
+  font-size: 2.6rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #ffcc23;
+  color: #333;
+  padding: 1.2rem 3.2rem;
+  border-radius: 11px;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
 .btn:link,
 .btn:visited {
   font-size: 2.6rem;
@@ -221,6 +233,111 @@ nav {
 .product-icon {
   margin-right: 0.8rem;
   color: #aa2064;
+}
+
+/* CTA SECTION */
+
+.section-cta {
+  padding: 9.6rem 4.8rem 9.6rem 4.8rem;
+}
+
+.cta-container {
+  max-width: 100rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+.cta-heading {
+  text-align: center;
+}
+
+.cta-description {
+  font-size: 1.8rem;
+}
+
+.cta-text-box {
+  color: #333;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 11px;
+  padding: 2.4rem;
+  box-shadow: 0 1.2rem 4.8rem rgba(0, 0, 0, 0.205);
+  transition: all 0.3s;
+}
+
+.cta-text-box:hover {
+  transform: translateY(0.6rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding: 3.2rem;
+  padding-right: 4.8rem;
+  border-right: #555 solid 4px;
+}
+
+.cta-form label {
+  display: block;
+  margin-bottom: 2.4rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.cta-form input {
+  width: 100%;
+  padding: 1.2rem 12.8rem 1.2rem 1.2rem;
+  border-radius: 9px;
+}
+
+.btn-cta {
+  border: none;
+  margin-top: 3.2rem;
+  cursor: pointer;
+  flex-grow: 0;
+  border-radius: 11px;
+}
+
+.cta-diff {
+  font-size: 4.4rem;
+  font-weight: 600;
+  color: #aa2064;
+}
+
+.cta-whatsapp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+  padding: 3.2rem;
+  padding-left: 2.4rem;
+}
+
+.cta-link:link,
+.cta-link:visited {
+  color: #aa2064;
+  transition: all 0.3s;
+}
+
+.cta-link:hover,
+.cta-link:active {
+  color: #333;
+}
+
+.cta-icon {
+  font-size: 20rem;
+}
+
+.cta-whatsapp p {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 /* SPECIAL-SECTION */

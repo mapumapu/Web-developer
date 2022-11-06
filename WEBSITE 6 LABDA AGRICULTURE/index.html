@@ -146,6 +146,38 @@
       </div>
     </section>
 
+    <section class="section-cta" id="contact-us">
+
+      <div class="cta-container">
+        <div class="cta-heading">
+          <h2 class="heading-secondary">Want to order with more quantity ?</h2>
+          <p class="cta-description">Get in touch with us, we will respond to you as soon as possible.</p>
+        </div>
+        <div class="cta-text-box">
+          <form action="#" class="cta-form">
+            <div>
+              <label for="Name">Name</label>
+              <input id="name" type="text" placeholder="Mastuty Ayu" required>
+            </div>
+            <div>
+              <label for="email">Email address</label>
+              <input id="email" type="email" placeholder="mastuty@labda-agriculture.com" required>
+            </div>
+            <button class="btn btn-cta">Get in touch</button>
+          </form>
+
+
+
+          <div class="cta-whatsapp">
+            <a href="#" class="cta-link">
+              <ion-icon name="logo-whatsapp" class="cta-icon"></ion-icon>
+            </a>
+            <p>Contact us via Whatsapp</p>
+          </div>
+
+        </div>
+    </section>
+
     <section class="section-special" id="about-us">
       <div class="special-container">
         <img src="img/undraw_farm_girl_dnpe.svg" alt="">
@@ -256,7 +288,7 @@
     </section>
 
     <footer>
-      <div class="footer-container" id="contact-us">
+      <div class="footer-container">
         <img class="footer-logo" src="img/logo-crop-transparent.png" alt="">
         <div class="address">
           <p>Address:</p>
@@ -265,7 +297,7 @@
           <p>Jawa Timur, Indonesia</p>
         </div>
         <div class="contact">
-          <p class="contact-title">Contact us</p>
+          <!-- <p class="contact-title">Contact us</p> -->
           <div class="social-media-container">
             <a href="#" class="footer-link">
               <ion-icon name="logo-instagram" class="footer-icon"></ion-icon>
@@ -323,19 +355,27 @@
     ScrollReveal().reveal('.hero-title', { delay: 500 });
     ScrollReveal().reveal('.hero-description', { delay: 500 });
     ScrollReveal().reveal('.hero-btn', { delay: 550 });
+
     //Special Section
     ScrollReveal().reveal('.special-container img', { delay: 300 });
     ScrollReveal().reveal('.special-text-box', { delay: 500 });
+
     //Product Section
     ScrollReveal().reveal(".product-heading", { delay: 300 });
     ScrollReveal().reveal(".product-cards img", { delay: 300 });
     ScrollReveal().reveal(".product-text-box", { delay: 300 });
     ScrollReveal().reveal(".product-icon", { delay: 300 });
     ScrollReveal().reveal(".product-btn", { delay: 300 });
+
     //Featured Section
     ScrollReveal().reveal(".featured-img:nth-child(1)", { delay: 300 });
     ScrollReveal().reveal(".featured-img:nth-child(2)", { delay: 300 });
     ScrollReveal().reveal(".featured-text-box-container", { delay: 300 });
+
+    //CTA section
+    ScrollReveal().reveal(".cta-heading", { delay: 300 });
+    ScrollReveal().reveal(".cta-text-box", { delay: 400 });
+
 
   </script>
 </body>
