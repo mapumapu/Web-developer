@@ -9,22 +9,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="queries.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
+  <script defer src="script.js"></script>
   <title>Labda</title>
 </head>
 
 <body>
-  <header>
+  <header class="header">
     <img class="logo" src="img/logo-crop-transparent.png" alt="">
 
-    <nav>
+    <nav class="nav">
       <a href="#marketplace" class="nav-link">Marketplace</a>
       <a href="#about-us" class="nav-link">About us</a>
       <a href="#" class="nav-link">How We Farm</a>
       <a href="#contact-us" class="nav-link">Contact us</a>
     </nav>
+
+    <button class="btn-mobile-nav">
+      <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+      <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+    </button>
+
   </header>
   <main>
     <section class="section-hero">
@@ -316,7 +324,7 @@
             </a>
           </div>
         </div>
-        <div class="nav-list">
+        <div class="nav-list first">
           <ul>
             <li><a href="#" class="footer-link">SECTION</a></li>
             <li><a href="#" class="footer-link">SECTION</a></li>
