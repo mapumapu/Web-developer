@@ -27,6 +27,7 @@
 
   .hero-container {
     grid-column: 2 / -2;
+    padding-left: 4.8rem;
   }
 
   .hero-btn {
