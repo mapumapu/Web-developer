@@ -44,10 +44,6 @@
     font-size: 5.2rem;
   }
 
-  .heading-secondary {
-    font-size: 3rem;
-  }
-
   .hero-description,
   .special-description,
   .featured-description,
@@ -161,7 +157,8 @@
   }
 
   .footer-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    row-gap: 6.4rem;
   }
 
   .cta-text-box {
