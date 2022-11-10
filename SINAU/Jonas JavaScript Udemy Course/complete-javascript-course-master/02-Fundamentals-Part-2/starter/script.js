@@ -181,6 +181,7 @@ if (friends.includes("Edwin")) {
 }
 */
 
+/*
 const aditArray = [
   "Adit",
   "Prasetya",
@@ -192,7 +193,74 @@ const aditArray = [
 const adit = {
   firstName: "Adit",
   lastName: "Prasetya",
-  Age: 2022 - 1996,
-  Job: "Programmer",
+  age: 2022 - 1996,
+  job: "Programmer",
   friends: ["Edwin", "Indra", "Mastuty"],
 };
+
+console.log(adit.lastName);
+console.log(adit["lastName"]);
+
+const nameKey = "Name";
+console.log(adit["first" + nameKey]);
+console.log(adit["last" + nameKey]);
+
+const interestedIn = prompt(
+  "What do you want to know about Adit? Choose between firstName, lastName, age, job, and friends"
+);
+
+if (adit[interestedIn]) {
+  console.log(adit[interestedIn]);
+} else {
+  console.log(
+    "Wrong request! Choose between firstName, lastName, age, job, and friends"
+  );
+}
+
+adit.location = "Indonesia";
+adit["instagram"] = "@madityapu";
+console.log(adit);
+
+//Challenge
+
+console.log(
+  `${adit.firstName} has ${adit.friends.length} friends, and his best friend is called ${adit.friends[0]}`
+);
+
+*/
+
+const adit = {
+  firstName: "Adit",
+  lastName: "Prasetya",
+  birthYear: 1996,
+  job: "Programmer",
+  friends: ["Edwin", "Indra", "Mastuty"],
+  hasDriversLicense: true,
+
+  // calcAge: function (birthYear) {
+  //   return 2022 - birthYear
+  // }
+
+  // calcAge: function () {
+  //   return 2022 - this.birthYear;
+  // },
+
+  calcAge: function () {
+    this.age = 2022 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      adit.job
+    }, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
+  },
+};
+
+console.log(adit.calcAge());
+// console.log(adit["calcAge"]);
+
+console.log(adit.age);
+
+//Challenge
+console.log(adit.getSummary());
