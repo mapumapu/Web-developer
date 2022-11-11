@@ -221,6 +221,15 @@ const myCountry = {
   language: "Java",
   population: 200,
   neighbours: ["Malaysia", "Singapore", "Thailand"],
+
+  //add method for Object Method assignment
+  describe: function () {
+    return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}`;
+  },
+
+  checkIsIsland: function () {
+    return this.neighbours.length ? true : false;
+  },
 };
 
 //Dot vs. Bracket Notation
@@ -234,3 +243,14 @@ console.log(myCountry);
 
 myCountry["population"] = myCountry["population"] - 4;
 console.log(myCountry);
+
+//Object Method
+
+console.log(myCountry.describe());
+console.log(myCountry.checkIsIsland());
+
+//Iteration: The for Loop
+
+for (let voter = 1; voter <= 50; voter++) {
+  console.log(`Voter number ${voter} is currently voting`);
+}

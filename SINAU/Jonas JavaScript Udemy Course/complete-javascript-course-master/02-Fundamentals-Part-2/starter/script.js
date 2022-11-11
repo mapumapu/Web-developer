@@ -229,6 +229,7 @@ console.log(
 
 */
 
+/*
 const adit = {
   firstName: "Adit",
   lastName: "Prasetya",
@@ -264,3 +265,90 @@ console.log(adit.age);
 
 //Challenge
 console.log(adit.getSummary());
+*/
+
+// console.log("Repetition 1");
+// console.log("Repetition 2");
+// console.log("Repetition 3");
+// console.log("Repetition 4");
+// console.log("Repetition 5");
+// console.log("Repetition 6");
+// console.log("Repetition 7");
+// console.log("Repetition 8");
+// console.log("Repetition 9");
+// console.log("Repetition 10");
+
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Repetition ${rep}`);
+// }
+
+/*
+const aditArray = [
+  "Adit",
+  "Prasetya",
+  2022 - 1996,
+  "Programmer",
+  ["Edwin", "Indra", "Mastuty"],
+  true,
+];
+
+const types = [];
+
+for (let i = 0; i < aditArray.length; i++) {
+  // Reading from adit array
+  console.log(aditArray[i], typeof aditArray[i]);
+
+  //Filling types array
+  // types[i] = typeof aditArray[i];
+  types.push(typeof aditArray[i]);
+}
+
+console.log(types);
+
+const years = [1996, 1997, 1998, 2002];
+const age = [];
+
+for (let i = 0; i < years.length; i++) {
+  // age[i] = 2022 - years[i];
+  age.push(2022 - years[i]);
+}
+
+console.log(age);
+
+//continue and break
+console.log("===ONLY STRING===");
+for (let i = 0; i < aditArray.length; i++) {
+  if (typeof aditArray[i] !== "string") continue;
+
+  console.log(aditArray[i], typeof aditArray[i]);
+}
+
+//after number found, break
+console.log("===BREAK WITH NUMBER===");
+for (let i = 0; i < aditArray.length; i++) {
+  if (typeof aditArray[i] === "number") break;
+
+  console.log(aditArray[i], typeof aditArray[i]);
+}
+*/
+
+const aditArray = [
+  "Adit",
+  "Prasetya",
+  2022 - 1996,
+  "Programmer",
+  ["Edwin", "Indra", "Mastuty"],
+  true,
+];
+
+for (let i = aditArray.length - 1; i >= 0; i--) {
+  console.log(i, aditArray[i]);
+}
+
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`Starting exercise ${exercise}`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${exercise} : Lifting weight repetition ${rep}`);
+  }
+}

@@ -137,3 +137,61 @@ const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log(bills);
 console.log(tips);
 console.log(total);
+
+//Challenge 3
+
+const markMiller = {
+  firstName: "Mark",
+  lastName: "Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+const johnSmith = {
+  firstName: "John",
+  lastName: "Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+markMiller.calcBMI();
+johnSmith.calcBMI();
+
+//1
+markMiller.bmi > johnSmith.bmi
+  ? console.log(
+      `${markMiller.firstName}'s BMI(${markMiller.bmi}) is higher than ${johnSmith.firstName}'s BMI(${johnSmith.bmi})`
+    )
+  : console.log(
+      `${johnSmith.firstName}'s BMI(${johnSmith.bmi}) is higher than ${markMiller.firstName}'s BMI(${markMiller.bmi})`
+    );
+
+//2
+console.log(
+  `${markMiller.firstName}'s BMI(${markMiller.bmi} is ${
+    markMiller.bmi > johnSmith.bmi ? "higher" : "lower"
+  } than ${johnSmith.firstName}'s BMI(${johnSmith.bmi}`
+);
+
+//3
+if (markMiller.bmi > johnSmith.bmi) {
+  console.log(
+    `${markMiller.firstName}'s BMI(${markMiller.bmi}) is higher than ${johnSmith.firstName}'s BMI(${johnSmith.bmi})`
+  );
+} else if (markMiller.bmi < johnSmith.bmi) {
+  console.log(
+    `${johnSmith.firstName}'s BMI(${johnSmith.bmi}) is higher than ${markMiller.firstName}'s BMI(${markMiller.bmi})`
+  );
+} else {
+  console.log(
+    `${markMiller.firstName}'s BMI(${markMiller.bmi}) is the same as ${johnSmith.firstName}'s BMI(${johnSmith.bmi})`
+  );
+}
