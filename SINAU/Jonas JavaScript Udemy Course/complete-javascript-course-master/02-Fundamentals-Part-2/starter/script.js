@@ -278,10 +278,6 @@ console.log(adit.getSummary());
 // console.log("Repetition 9");
 // console.log("Repetition 10");
 
-// for (let rep = 1; rep <= 10; rep++) {
-//   console.log(`Repetition ${rep}`);
-// }
-
 /*
 const aditArray = [
   "Adit",
@@ -332,6 +328,7 @@ for (let i = 0; i < aditArray.length; i++) {
 }
 */
 
+/*
 const aditArray = [
   "Adit",
   "Prasetya",
@@ -352,3 +349,27 @@ for (let exercise = 1; exercise < 4; exercise++) {
     console.log(`Exercise ${exercise} : Lifting weight repetition ${rep}`);
   }
 }
+
+*/
+
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Repetition ${rep}`);
+// }
+
+/*
+let rep = 1;
+while (rep <= 10) {
+  console.log(`Repetition ${rep}`);
+  rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while (dice !== 6) {
+  console.log(`You roll a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+
+  if (dice === 6) console.log(`Loop is about to end...`);
+}
+*/

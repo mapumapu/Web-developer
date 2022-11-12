@@ -254,3 +254,38 @@ console.log(myCountry.checkIsIsland());
 for (let voter = 1; voter <= 50; voter++) {
   console.log(`Voter number ${voter} is currently voting`);
 }
+
+//Looping Array, Breaking and Continue
+
+const percentage2 = [];
+
+for (let i = 0; i <= populations.length - 1; i++) {
+  percentage2.push(percentageOfWorld1(populations[i]));
+}
+
+console.log(percentage2);
+
+//Looping Backwards and Loops in Loops
+
+const listOfNeighbours = [
+  ["Canada", "Mexico"],
+  ["Spain"],
+  ["Norway", "Sweden", "Russia"],
+];
+
+for (let i = 0; i < listOfNeighbours.length; i++) {
+  for (let x = 0; x < listOfNeighbours[i].length; x++) {
+    console.log(`Neighbour: ${listOfNeighbours[i][x]}`);
+  }
+}
+
+//The while Loop
+
+const percentage3 = [];
+let i = 0;
+while (percentage3.length !== populations.length) {
+  percentage3.push(percentageOfWorld1(populations[i]));
+  i++;
+}
+
+console.log(percentage3);

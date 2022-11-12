@@ -195,3 +195,32 @@ if (markMiller.bmi > johnSmith.bmi) {
     `${markMiller.firstName}'s BMI(${markMiller.bmi}) is the same as ${johnSmith.firstName}'s BMI(${johnSmith.bmi})`
   );
 }
+
+//Challenge 4
+
+const billsBills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const tipTip = [];
+const totalTotal = [];
+
+for (let i = 0; i < billsBills.length; i++) {
+  const tip = calcTip(billsBills[i]);
+  tipTip.push(tip);
+  totalTotal.push(tip + billsBills[i]);
+}
+
+console.log(billsBills, tipTip, totalTotal);
+
+//Bonus
+
+function calcAverage2(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    // sum = sum + arr[i];
+    sum += arr[i];
+  }
+  return sum / arr.length;
+}
+
+console.log(calcAverage2(tipTip));
+console.log(calcAverage2(totalTotal));
