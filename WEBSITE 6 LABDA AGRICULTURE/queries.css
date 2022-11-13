@@ -70,6 +70,10 @@
     min-height: 90rem;
   }
 
+  .crossfade > figure {
+    min-height: 90rem;
+  }
+
   .section-product {
     padding-top: 6.4rem;
   }
@@ -143,6 +147,10 @@
   }
 
   .section-hero {
+    min-height: 80rem;
+  }
+
+  .crossfade > figure {
     min-height: 80rem;
   }
 
