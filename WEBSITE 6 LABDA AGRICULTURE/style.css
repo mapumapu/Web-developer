@@ -34,6 +34,7 @@ body {
   padding: 0 8rem;
   width: 100%;
   position: absolute;
+  background-color: transparent;
 }
 
 .logo {
@@ -87,18 +88,6 @@ body {
 /* HERO SECTION */
 
 .section-hero {
-  /* background-image: ; */
-  /* background: linear-gradient(
-    to right,
-    rgba(51, 51, 51, 0.924),
-    rgba(51, 51, 51, 0)
-  ); */
-  /* background: linear-gradient(
-      to right,
-      rgba(51, 51, 51, 0.924),
-      rgba(51, 51, 51, 0)
-    ),
-    url(img/bawang-mirror.webp); */
   background-size: cover;
   min-height: 100rem;
   display: flex;
@@ -109,9 +98,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  /* align-items: center; */
-  /* row-gap: 2.4rem; */
-  /* flex-direction: row; */
   background: linear-gradient(
     to right,
     rgba(51, 51, 51, 0.747),
@@ -131,6 +117,8 @@ body {
 .hero-title {
   font-size: 6.2rem;
   line-height: 1.1;
+  font-weight: 700;
+  color: #f7f2f4;
 }
 
 .hero-description {
