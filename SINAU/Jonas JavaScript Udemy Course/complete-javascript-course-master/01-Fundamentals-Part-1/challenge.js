@@ -224,3 +224,30 @@ function calcAverage2(arr) {
 
 console.log(calcAverage2(tipTip));
 console.log(calcAverage2(totalTotal));
+
+//Developer Skills and Editor Setup
+//Challenge 1
+
+function printForecast(arr) {
+  // const shit = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   shit.push(`${arr[i]}ºC in ${i + 1} days`);
+  // }
+
+  let dailyForecast = "";
+  for (let i = 0; i < arr.length; i++) {
+    dailyForecast += `... ${arr[i]}ºC in ${i + 1} days `;
+  }
+
+  return `${dailyForecast}...`;
+}
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+console.log(printForecast(data1));
+console.log(printForecast(data2));
+
+// const arr = [17, 21, 23];
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(`${arr[i]}ºC in ${i + 1} days`);
+// }

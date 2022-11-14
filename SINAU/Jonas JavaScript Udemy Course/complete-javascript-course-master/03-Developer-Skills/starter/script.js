@@ -11,26 +11,34 @@ function calcPlus(number1, number2) {
 
 console.log(calcPlus(5, 6));
 
-function printForecast(arr) {
-  const shit = [];
-  for (let i = 0; i < arr.length; i++) {
-    shit.push(`${arr[i]}ºC in ${i + 1} days`);
-  }
+const temperatures = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
 
-  let wow = "";
-  for (let i = 0; i < shit.length; i++) {
-    wow = wow + "... " + shit[i] + " ";
+let max = temperatures[0];
+function calcMaxTemperature(temps) {
+  for (let i = 0; i < temps.length; i++) {
+    if (temps[i] > max) {
+      max = temps[i];
+    }
   }
-
-  return wow + "...";
 }
 
-const data1 = [17, 21, 23];
-const data2 = [12, 5, -5, 0, 4];
-console.log(printForecast(data1));
-console.log(printForecast(data2));
+let min = temperatures[0];
+function calcMinTemperature(temps) {
+  for (let i = 0; i < temps.length; i++) {
+    if (temps[i] < min) {
+      min = temps[i];
+    }
+  }
+}
 
-// const arr = [17, 21, 23];
-// for (let i = 0; i < arr.length; i++) {
-//   console.log(`${arr[i]}ºC in ${i + 1} days`);
-// }
+function substractMinMaxTemperature(max, min) {
+  const substract = max - min;
+  return substract;
+}
+
+calcMaxTemperature(temperatures);
+console.log(max);
+calcMinTemperature(temperatures);
+console.log(min);
+
+console.log(substractMinMaxTemperature(max, min));
