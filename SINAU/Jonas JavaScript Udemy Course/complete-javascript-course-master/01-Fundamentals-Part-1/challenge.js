@@ -228,26 +228,26 @@ console.log(calcAverage2(totalTotal));
 //Developer Skills and Editor Setup
 //Challenge 1
 
-function printForecast(arr) {
-  // const shit = [];
-  // for (let i = 0; i < arr.length; i++) {
-  //   shit.push(`${arr[i]}ºC in ${i + 1} days`);
-  // }
+//1. Understanding the problem
+//-Array transform to string, separated by (...)
+//-What is the x days? index + 1
 
+//2. Breaking up into sub-problems
+//-Transform array into string
+//-Transform each element to string with ºC
+//-String needs to contains day (index + 1)
+//-Add ... between elements and start and end of string
+
+const printForecast = function (arr) {
   let dailyForecast = "";
   for (let i = 0; i < arr.length; i++) {
     dailyForecast += `... ${arr[i]}ºC in ${i + 1} days `;
   }
-
-  return `${dailyForecast}...`;
-}
+  console.log(`${dailyForecast}...`);
+};
 
 const data1 = [17, 21, 23];
 const data2 = [12, 5, -5, 0, 4];
-console.log(printForecast(data1));
-console.log(printForecast(data2));
 
-// const arr = [17, 21, 23];
-// for (let i = 0; i < arr.length; i++) {
-//   console.log(`${arr[i]}ºC in ${i + 1} days`);
-// }
+printForecast(data1);
+printForecast(data2);
