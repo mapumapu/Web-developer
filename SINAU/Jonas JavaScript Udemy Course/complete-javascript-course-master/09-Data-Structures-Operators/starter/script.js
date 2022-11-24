@@ -5,6 +5,22 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
+const weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+  [weekDays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekDays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekDays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -12,20 +28,8 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  //ES6 Enchanced object literals
+  openingHours,
 
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
@@ -54,6 +58,82 @@ const restaurant = {
   },
 };
 
+////////////////////////////////////////////////////////////////////////////////
+// Logical Assignment Operators
+////////////////////////////////////////////////////////////////////////////////
+
+/*
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+//Regular 'For Loops'
+for (let i = 0; i < menu.length; i++) {
+  console.log(menu[i]);
+}
+
+console.log(`###############################`);
+
+//'For-Of-Loops'
+for (const item of menu) console.log(item);
+
+console.log(`###############################`);
+
+for (const item of menu.entries()) {
+  console.log(`${item[0] + 1}: ${item[1]}`);
+}
+
+console.log(`###############################`);
+
+//With destructuring array
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+console.log(`###############################`);
+
+//what in the menu.entries()
+console.log(...menu.entries());
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Logical Assignment Operators
+////////////////////////////////////////////////////////////////////////////////
+/*
+
+const rest1 = {
+  name: 'Capri',
+  // numGuest: 20,
+  numGuest: 0,
+};
+
+const rest2 = {
+  name: 'La Piaza',
+  owner: 'Maputo',
+};
+
+// OR Assignment operator
+// rest1.numGuest = rest1.numGuest || 10;
+// rest2.numGuest = rest2.numGuest || 10;
+// rest1.numGuest ||= 10;
+// rest2.numGuest ||= 10;
+
+//Nullish assignment operator (null or undefined)
+rest1.numGuest ??= 10;
+rest2.numGuest ??= 10;
+
+// AND assignment operator
+// rest1.owner = rest1.owner && 'Anonymous';
+// rest2.owner = rest2.owner && 'Anonymous';
+rest1.owner &&= 'Anonymous';
+rest2.owner &&= 'Anonymous';
+
+console.log(rest1);
+console.log(rest2);
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// The Nullish Coalescing Operator
+////////////////////////////////////////////////////////////////////////////////
+/*
 restaurant.numGuests = 0;
 const guests = restaurant.numGuests || 10;
 console.log(guests);
@@ -61,10 +141,11 @@ console.log(guests);
 // Nullish: null and undefined (NOT 0 or '')
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
+*/
 
-/////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // Short Circuiting (&& and ||)
-/////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 /*
 console.log('---- OR ----');
 // Use ANY data type, return ANY data type, short-circuiting
@@ -96,9 +177,9 @@ if (restaurant.orderPizza) {
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 */
 
-// ///////////////////////
+// ////////////////////////////////////////////////////////////////////////////////
 // Rest Pattern and Parameters
-// ///////////////////////
+// ////////////////////////////////////////////////////////////////////////////////
 
 /*
 //1. Destructuring
@@ -139,9 +220,9 @@ add(...x);
 
 restaurant.orderPizza('onions', 'meat', 'cocain');
 
-///////////////////////
+////////////////////////////////////////////////////////////////////////////////
 Spread Operator (...)
-///////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 /*
 const arr = [7, 8, 9];
@@ -192,9 +273,9 @@ console.log(restaurantCopy.name);
 console.log(restaurant.name);
 
 
-///////////////////////
+////////////////////////////////////////////////////////////////////////////////
 Destructuring Objects
-///////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 restaurant.orderDelivery({
   time: '22:30',
@@ -239,9 +320,9 @@ console.log(o, c);
 /*);
 /*
 
-///////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 Destructuring Array
-///////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 const arr = [2, 3, 4];
 const a = arr[0];
