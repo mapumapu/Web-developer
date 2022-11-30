@@ -59,7 +59,74 @@ const restaurant = {
 };
 
 ////////////////////////////////////////////////////////////////////////////////
-// Logical Assignment Operators
+// Looping Objects: Object Keys, Values, and Entries
+////////////////////////////////////////////////////////////////////////////////
+
+/*
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of Object.keys(openingHours)) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+//Property Values
+const values = Object.values(openingHours);
+console.log(values);
+
+//Entire object
+const entries = Object.entries(openingHours);
+// console.log(entries);
+
+for (const [day, { open, close }] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Optional Chaining (?.)
+////////////////////////////////////////////////////////////////////////////////
+
+/*
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// console.log(restaurant.openingHours.mon.open);
+
+//WITH optional chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+//Example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+//Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method not exist');
+console.log(restaurant.orderRissoto?.(0, 1) ?? 'Method not exist');
+
+//Arrays
+const user = [{ name: 'Adit', email: 'haiya@yahoo.com' }];
+// const user = [];
+
+//optional chaining
+console.log(user[0]?.name ?? 'empty');
+
+//old way
+if (user.length > 0) console.log(user[0].name);
+else console.log('empty');
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// For-Of Loops
 ////////////////////////////////////////////////////////////////////////////////
 
 /*

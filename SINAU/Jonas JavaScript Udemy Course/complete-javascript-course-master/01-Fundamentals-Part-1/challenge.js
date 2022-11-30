@@ -347,3 +347,40 @@ printGoals(...game.scored);
 //7.
 team1 < team2 && console.log(`${game.team1} is more likely to wins`);
 team1 > team2 && console.log(`${game.team2} is more likely to wins`);
+
+//Data Structures, Modern Operators and Strings
+//Challenge 2
+
+//1.
+for (const [goalNumb, goalScorer] of game.scored.entries()) {
+  console.log(`Goal ${goalNumb + 1}: ${goalScorer}`);
+}
+
+//2.
+let averageOdds = 0;
+const gameOdds = Object.entries(game.odds);
+for (const [, odds] of gameOdds) {
+  averageOdds += odds / gameOdds.length;
+}
+console.log(`The average odds: ${averageOdds}`);
+
+//Better
+let averageOdds2 = 0;
+const gamesOdds = Object.values(game.odds);
+for (const odd of gamesOdds) {
+  averageOdds2 += odd / gamesOdds.length;
+}
+console.log(`The average odds: ${averageOdds2}`);
+
+//3.
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr}: ${odd}`);
+}
+
+//Bonus
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+console.log(scorers);
