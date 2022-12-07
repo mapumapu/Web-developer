@@ -58,19 +58,141 @@ const restaurant = {
   },
 };
 
-const gameEvents = new Map([
-  [17, '⚽ GOAL'],
-  [36, '� Substitution'],
-  [47, '⚽ GOAL'],
-  [61, '� Substitution'],
-  [64, '� Yellow card'],
-  [69, '� Red card'],
-  [70, '� Substitution'],
-  [72, '� Substitution'],
-  [76, '⚽ GOAL'],
-  [80, '⚽ GOAL'],
-  [92, '� Yellow card'],
-]);
+////////////////////////////////////////////////////////////////////////////////
+// Working With String Part 2
+////////////////////////////////////////////////////////////////////////////////
+
+/*
+const airline = 'Garuda Indonesia';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+//Fix Capitalization in name
+const passenger = 'AditYa'; //Aditya
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+const fixCapitalization = function (name) {
+  const nameLower = name.toLowerCase();
+  return nameLower[0].toUpperCase() + nameLower.slice(1);
+};
+
+console.log(fixCapitalization('mastutY'));
+
+const fixCapitalizeEachWord = function (name) {
+  const nameLower = name.toLowerCase();
+  const nameSplit = nameLower.split(' ');
+
+  for (let i = 0; i < nameSplit.length; i++) {
+    nameSplit[i] = nameSplit[i][0].toUpperCase() + nameSplit[i].slice(1);
+  }
+
+  return nameSplit.join(' ');
+};
+
+console.log(fixCapitalizeEachWord('adItya prasetYa uTAma'));
+
+//Comparing Email
+const email = 'aditya@mapu.io';
+const loginEmail = '   AdityA@Mapu.io \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+//Replacing
+const priceRupiah = 'Rp.900.123 ';
+const priceDollar = priceRupiah.replace('Rp.', '$').replace(',', '.');
+console.log(priceDollar);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate')); //It work!
+
+console.log(announcement.replace(/door/g, 'gate'));
+
+//Booleans
+const plane = 'B737 800';
+console.log(plane.includes('B737'));
+console.log(plane.includes('Airbus'));
+console.log(plane.startsWith('B7'));
+
+if (plane.startsWith('B') && plane.endsWith('800')) {
+  console.log(`Part of the new Boeing Family`);
+}
+
+//Practice Exercise
+const checkBaggage = function (item) {
+  const baggage = item.toLowerCase();
+
+  if (baggage.includes('pisau') || baggage.includes('pistol')) {
+    console.log('You are not allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('ada laptop, makanan, dan Pisau');
+checkBaggage('Kaos, camera');
+checkBaggage('Pistol untuk perlindungan, snacks');
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Working With String Part 1
+////////////////////////////////////////////////////////////////////////////////
+/*
+
+const airline = 'Garuda Indonesia';
+const plane = 'B737-800';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Indonesia'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+//First Word
+console.log(airline.slice(0, airline.indexOf(' ')));
+
+//Last Word
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  //B and E are middle seat
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat');
+  else console.log('You got lucky');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('aditya'));
+console.log(typeof new String('aditya'));
+console.log(typeof new String('aditya').slice(1));
+*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // Maps: Iteration

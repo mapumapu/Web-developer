@@ -384,3 +384,52 @@ for (const player of game.scored) {
   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
 console.log(scorers);
+
+//Data Structures, Modern Operators and Strings
+//Challenge 3
+
+const gameEvents = new Map([
+  [17, "⚽ GOAL"],
+  [36, "� Substitution"],
+  [47, "⚽ GOAL"],
+  [61, "� Substitution"],
+  [64, "� Yellow card"],
+  [69, "� Red card"],
+  [70, "� Substitution"],
+  [72, "� Substitution"],
+  [76, "⚽ GOAL"],
+  [80, "⚽ GOAL"],
+  [92, "� Yellow card"],
+]);
+
+//1.
+const tempSet = new Set([...gameEvents.values()]);
+console.log(tempSet);
+
+const events = [...tempSet];
+console.log(events);
+
+//Better
+const events1 = [...new Set(gameEvents.values())];
+console.log(events1);
+
+//2.
+gameEvents.delete(64);
+console.log(gameEvents);
+
+//3.
+console.log(`An event happened, on
+average, every ${90 / gameEvents.size} minutes`);
+// console.log(gameEvents.size);
+
+//Bonus (for 92 minute)
+const time = [...gameEvents.keys()].pop();
+// console.log(time);
+console.log(`An event happened, on
+average, every ${time / gameEvents.size} minutes`);
+
+//4.
+for (const [minute, event] of gameEvents) {
+  const babak = minute <= 45 ? "[First Half]" : "[Second Half]";
+  console.log(`${babak} ${minute}: ${event}`);
+}
