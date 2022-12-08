@@ -58,6 +58,102 @@ const restaurant = {
   },
 };
 
+//Console log way
+/*
+const camelCase = function (text) {
+  const textLower = text.toLowerCase().trim();
+  const textSplit = textLower.split('_');
+  
+  for (let i = 1; i < textSplit.length; i++) {
+    textSplit[i] = textSplit[i][0].toUpperCase() + textSplit[i].slice(i);
+  }
+  
+  return textSplit.join('');
+};
+*/
+//Data test
+// console.log(camelCase('underscore_case'));
+// console.log(camelCase('                  first_name            '));
+// console.log(camelCase('Some_Variable                '));
+// console.log(camelCase('          calculate_AGE '));
+// console.log(camelCase('delayed_departure'));
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const textLowerSplit = text.toLowerCase().split('_');
+
+  for (let i = 1; i < textLowerSplit.length; i++) {
+    textLowerSplit[i] =
+      textLowerSplit[i][0].toUpperCase() + textLowerSplit[i].slice(1);
+  }
+
+  const textJoin = textLowerSplit.join('');
+  console.log(textJoin);
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Working With String Part 3
+////////////////////////////////////////////////////////////////////////////////
+
+/*
+//Split and Join
+console.log('a+very+nice+string'.split('+'));
+console.log('Aditya Prasetya'.split(' '));
+
+const [firstName, lastName] = 'Aditya Prasetya'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const nameLower = name.toLowerCase();
+  const names = nameLower.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+
+  return namesUpper.join(' ');
+};
+
+console.log(capitalizeName('aditya prAsetya utaMa haiya'));
+
+//Padding
+const message = 'Go to gate 23';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Aditya'.padStart(20, '+').padEnd(30, '+'));
+
+//Real world example
+const maskCreditCard = function (number) {
+  const str = number + ''; //String(number)
+  const last = str.slice(-4);
+
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(8475956184519401));
+console.log(maskCreditCard('8697351047596310'));
+
+//Repeat
+const message2 = 'Bad weather... All Departure Delayed... ';
+
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'haiya'.repeat(n)}`);
+};
+
+planesInLine(5);
+planesInLine(10);
+planesInLine(3);
+*/
+
 ////////////////////////////////////////////////////////////////////////////////
 // Working With String Part 2
 ////////////////////////////////////////////////////////////////////////////////
