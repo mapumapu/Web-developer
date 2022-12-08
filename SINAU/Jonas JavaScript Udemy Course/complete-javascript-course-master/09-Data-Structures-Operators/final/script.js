@@ -108,9 +108,9 @@ document.body.append(document.createElement('button'));
 
 document.querySelector('button').addEventListener('click', function () {
   const text = document.querySelector('textarea').value;
-  const rows = text.split('\n');
+  const rows = text.split('\n');                                  [1,2,3,4,5]
 
-  for (const [i, row] of rows.entries()) {
+  for (const [i, row] of rows.entries())                          { {[1,1] [2,2] [3,3] [4,4] [5,5]}
     const [first, second] = row.toLowerCase().trim().split('_');
 
     const output = `${first}${second.replace(
