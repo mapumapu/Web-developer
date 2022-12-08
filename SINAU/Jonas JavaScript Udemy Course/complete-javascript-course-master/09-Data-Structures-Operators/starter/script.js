@@ -1,9 +1,5 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
 // Data needed for first part of the section
 const weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
@@ -58,41 +54,37 @@ const restaurant = {
   },
 };
 
-//Console log way
+////////////////////////////////////////////////////////////////////////////////
+// String Methods Practice
+////////////////////////////////////////////////////////////////////////////////
+
 /*
-const camelCase = function (text) {
-  const textLower = text.toLowerCase().trim();
-  const textSplit = textLower.split('_');
-  
-  for (let i = 1; i < textSplit.length; i++) {
-    textSplit[i] = textSplit[i][0].toUpperCase() + textSplit[i].slice(i);
-  }
-  
-  return textSplit.join('');
-};
+// Data needed for a later exercise
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+//To This
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+console.log(flights.split('+'));
+
+const getCode = (str) => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? 'Shit' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )} from ${getCode(from)} to ${getCode(to)} (${time.replace(
+    ':',
+    'h'
+  )})`.padStart(50);
+  console.log(output);
+}
 */
-//Data test
-// console.log(camelCase('underscore_case'));
-// console.log(camelCase('                  first_name            '));
-// console.log(camelCase('Some_Variable                '));
-// console.log(camelCase('          calculate_AGE '));
-// console.log(camelCase('delayed_departure'));
-
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
-
-document.querySelector('button').addEventListener('click', function () {
-  const text = document.querySelector('textarea').value;
-  const textLowerSplit = text.toLowerCase().split('_');
-
-  for (let i = 1; i < textLowerSplit.length; i++) {
-    textLowerSplit[i] =
-      textLowerSplit[i][0].toUpperCase() + textLowerSplit[i].slice(1);
-  }
-
-  const textJoin = textLowerSplit.join('');
-  console.log(textJoin);
-});
 
 ////////////////////////////////////////////////////////////////////////////////
 // Working With String Part 3

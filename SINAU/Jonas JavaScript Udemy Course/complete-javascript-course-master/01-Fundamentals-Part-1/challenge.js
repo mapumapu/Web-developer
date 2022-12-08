@@ -433,3 +433,57 @@ for (const [minute, event] of gameEvents) {
   const babak = minute <= 45 ? "[First Half]" : "[Second Half]";
   console.log(`${babak} ${minute}: ${event}`);
 }
+
+//Data Structures, Modern Operators and Strings
+//Challenge 4
+
+//Console log way
+/*
+const camelCase = function (text) {
+  const textLower = text.toLowerCase().trim();
+  const textSplit = textLower.split('_');
+  
+  for (let i = 1; i < textSplit.length; i++) {
+    textSplit[i] = textSplit[i][0].toUpperCase() + textSplit[i].slice(i);
+  }
+  
+  return textSplit.join('');
+};
+
+//Data test
+console.log(camelCase('underscore_case'));
+console.log(camelCase('                  first_name            '));
+console.log(camelCase('Some_Variable                '));
+console.log(camelCase('          calculate_AGE '));
+console.log(camelCase('delayed_departure'));
+*/
+
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("button"));
+
+document.querySelector("button").addEventListener("click", function () {
+  const text = document.querySelector("textarea").value;
+  console.log(text);
+  const rows = text.split("\n");
+  console.log(rows);
+
+  // for (const row of rows)
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split("_");
+    // console.log(row, first, second);
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${"Mantab ".repeat(i + 1)}`);
+  }
+});
+
+//Test data
+/*
+underscore_case
+ first_name
+Some_Variable 
+  calculate_AGE
+delayed_departure
+*/
