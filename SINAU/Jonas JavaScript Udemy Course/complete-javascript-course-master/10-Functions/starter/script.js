@@ -135,3 +135,107 @@ const greet2 = greeting => name => console.log(`${greeting} ${name}`);
 
 greet2('Hi')('Adit');
 */
+
+// #########################################################
+// Call, Apply, and Bind Method
+// #########################################################
+
+const garudaIndonesia = {
+  airline: 'Garuda Indonesia',
+  iataCode: 'GA',
+  bookings: [],
+
+  book: function (flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+garudaIndonesia.book(123, 'Aditya Prasetya');
+garudaIndonesia.book(123, 'Mastuty Ayu');
+console.log(garudaIndonesia);
+
+const citilink = {
+  airline: 'Citilink',
+  iataCode: 'QG',
+  bookings: [],
+};
+
+const book = garudaIndonesia.book;
+
+// Does NOT work
+// book(123, 'Aditya Mastuty');
+
+// Call method
+book.call(citilink, 123, 'Aditya Mastuty');
+console.log(citilink);
+
+book.call(garudaIndonesia, 123, 'Prasetya Ningtyas');
+console.log(garudaIndonesia);
+
+const lionAir = {
+  airline: 'Lion Air',
+  iataCode: 'JT',
+  bookings: [],
+};
+
+book.call(lionAir, 123, 'Utama Mastuty');
+
+// Apply method
+const flightData = [583, 'Aditya Mastuty'];
+book.apply(lionAir, flightData);
+console.log(lionAir);
+
+// Same as apply method
+book.call(lionAir, ...flightData);
+
+// Bind method
+// book.call(citilink, 123, 'Aditya Mastuty');
+
+const bookCitilink = book.bind(citilink);
+const bookGarudaIndonesia = book.bind(garudaIndonesia);
+const bookLionAir = book.bind(lionAir);
+
+bookCitilink(123, 'Aditya Utama');
+
+const bookCitilink123 = book.bind(citilink, 123);
+bookCitilink123('Aditya');
+bookCitilink123('Mastuty');
+
+// With Event Listener
+garudaIndonesia.planes = 300;
+garudaIndonesia.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+// garudaIndonesia.buyPlane();
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', garudaIndonesia.buyPlane.bind(garudaIndonesia));
+
+// Partial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.12);
+// addVAT = value => value + value * 0.12
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+//Challenge
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTaxRate(0.12);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
