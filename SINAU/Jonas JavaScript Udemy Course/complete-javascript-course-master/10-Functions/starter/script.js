@@ -261,6 +261,9 @@ const poll = {
       this.answers[answer]++;
     }
 
+    //Better
+    //typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++
+
     //4.
     this.displayResult();
     this.displayResult('string');
