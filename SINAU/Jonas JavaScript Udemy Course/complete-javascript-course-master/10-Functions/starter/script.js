@@ -242,46 +242,101 @@ console.log(addVAT2(100));
 console.log(addVAT2(23));
 */
 
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
-  // This generates [0, 0, 0, 0]. More in the next section!
-  answers: new Array(4).fill(0),
+// #########################################################
+// Immediately Invoked Function Expressions(IIFE)
+// #########################################################
 
-  //1.
-  registerNewAnswer: function () {
-    //1.1
-    const answer = Number(
-      prompt(`${this.question}\n${this.options.join('\n')}`)
-    );
-    console.log(answer);
-
-    //1.2
-    if (typeof answer === 'number' && answer < this.answers.length) {
-      this.answers[answer]++;
-    }
-
-    //4.
-    this.displayResult();
-    this.displayResult('string');
-  },
-
-  //3.
-  displayResult: function (type = 'array') {
-    if (type === 'array') {
-      console.log(this.answers);
-    } else if (type === 'string') {
-      console.log(`Poll result are ${this.answers.join(', ')}`);
-    }
-  },
+/*
+const runOnce = function () {
+  console.log(`This will never run again`);
 };
 
-//2.
-document
-  .querySelector('.poll')
-  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+runOnce();
 
-//5. Bonus
-poll.displayResult.call({ answers: [5, 2, 3] }, 'string');
-poll.displayResult.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
-poll.displayResult.call({ answers: [1, 5, 3, 9, 6, 1] });
+//IIFE
+(function () {
+  console.log(`This will never run again`);
+  const isPrivate = 23;
+})();
+
+// console.log(isPrivate);
+
+(() => console.log(`This will ALSO never run again`))();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+
+// console.log(isPrivate);
+console.log(notPrivate);
+*/
+
+// #########################################################
+// Closures
+// #########################################################
+
+/*
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
+
+//More Closures Example
+//Example 1
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+
+//Re-assigning f function
+h();
+f();
+
+console.dir(f);
+
+//Example 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+// setTimeout(function () {
+//   console.log(`HAIYA`);
+// }, 1000);
+
+const perGroup = 1000
+boardPassengers(180, 3);
+*/

@@ -490,3 +490,60 @@ delayed_departure
 
 //A Closer Look at Functions
 //Challenge 1
+
+const poll = {
+  question: "What is your favourite programming language?",
+  options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
+  // This generates [0, 0, 0, 0]. More in the next section!
+  answers: new Array(4).fill(0),
+
+  //1.
+  registerNewAnswer: function () {
+    //1.1
+    const answer = Number(
+      prompt(`${this.question}\n${this.options.join("\n")}`)
+    );
+    console.log(answer);
+
+    //1.2
+    if (typeof answer === "number" && answer < this.answers.length) {
+      this.answers[answer]++;
+    }
+
+    //4.
+    this.displayResult();
+    this.displayResult("string");
+  },
+
+  //3.
+  displayResult: function (type = "array") {
+    if (type === "array") {
+      console.log(this.answers);
+    } else if (type === "string") {
+      console.log(`Poll result are ${this.answers.join(", ")}`);
+    }
+  },
+};
+
+//2.
+document
+  .querySelector(".poll")
+  .addEventListener("click", poll.registerNewAnswer.bind(poll));
+
+//5. Bonus
+poll.displayResult.call({ answers: [5, 2, 3] }, "string");
+poll.displayResult.call({ answers: [1, 5, 3, 9, 6, 1] }, "string");
+poll.displayResult.call({ answers: [1, 5, 3, 9, 6, 1] });
+
+//A Closer Look at Functions
+//Challenge 2
+
+(function () {
+  const header = document.querySelector("h1");
+  header.style.color = "red";
+
+  addEventListener("click", function () {
+    this.document.querySelector("body");
+    header.style.color = "blue";
+  });
+})();
