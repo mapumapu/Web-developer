@@ -71,6 +71,94 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+/////////////////////////////////////////////////
+// Simple Array Methods
+/////////////////////////////////////////////////
+/*
+let arr = ['a', 'b', 'c', 'd', 'e'];
+console.log(arr);
+
+// SLICE
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
+console.log(arr.slice(-1));
+console.log(arr.slice(1, -2));
+console.log(arr.slice());
+console.log([...arr]);
+
+// SPLICE
+// console.log(arr.splice(2));
+arr.splice(-1);
+console.log(arr);
+arr.splice(1, 2);
+console.log(arr);
+
+// REVERSE
+arr = ['a', 'b', 'c', 'd', 'e'];
+let arr2 = ['f', 'g', 'h', 'i', 'j'];
+console.log(arr2.reverse());
+console.log(arr2);
+
+// CONCAT
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]);
+
+// JOIN
+console.log(letters.join(' - '));
+console.log(letters);
+*/
+
+/////////////////////////////////////////////////
+// The new 'at' Method
+/////////////////////////////////////////////////
+/*
+const arr = [23, 11, 64];
+console.log(arr[0]);
+console.log(arr.at(0));
+
+// getting last array element
+//old way
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1)[0]);
+
+//new way
+console.log(arr.at(-1));
+
+//also work on string
+console.log('aditya'.at(-2));
+*/
+
+/////////////////////////////////////////////////
+// Looping Array: forEach
+/////////////////////////////////////////////////
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// for (const movement of movements){
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log('----FOREACH----');
+//argument forEach (element, index, array)
+movements.forEach(function (mov, i, arr) {
+  if (mov > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${mov}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+  }
+});
+//0: function(200)
+//1: function(450)
+//2: function(400)
+//...
