@@ -1,5 +1,6 @@
 "use strict";
 
+//############################################################
 //JavaScript Fundamental 1
 //Challege 1
 // const markMass = 78;
@@ -87,6 +88,7 @@ console.log(
   `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`
 );
 
+//############################################################
 //JavaScript Fundamental 2
 //Challenge 1
 
@@ -225,6 +227,7 @@ function calcAverage2(arr) {
 console.log(calcAverage2(tipTip));
 console.log(calcAverage2(totalTotal));
 
+//############################################################
 //Developer Skills and Editor Setup
 //Challenge 1
 
@@ -252,6 +255,7 @@ const data2 = [12, 5, -5, 0, 4];
 printForecast(data1);
 printForecast(data2);
 
+//############################################################
 //JS in Browser: DOM and Events
 //Challenge 1
 
@@ -273,6 +277,7 @@ document.querySelector(".again").addEventListener("click", function () {
   document.querySelector(".number").style.width = "15rem";
 });
 
+//############################################################
 //Data Structures, Modern Operators and Strings
 //Challenge 1
 
@@ -488,6 +493,7 @@ Some_Variable
 delayed_departure
 */
 
+//############################################################
 //A Closer Look at Functions
 //Challenge 1
 
@@ -547,3 +553,82 @@ poll.displayResult.call({ answers: [1, 5, 3, 9, 6, 1] });
     header.style.color = "blue";
   });
 })();
+
+//############################################################
+//Working With Array
+//Challenge 1
+
+const checkDogs = function (dogsJulia, dogsKate) {
+  //using slice and spread operator
+  /* 
+  const dogsJuliaCheck = dogsJulia.slice(1, -2);
+  const dogsCorrect = [...dogsJuliaCheck, ...dogsKate];
+  */
+
+  //using slice, splice, and concat
+  const dogsJuliaCheck = dogsJulia.slice();
+  dogsJuliaCheck.splice(0, 1);
+  dogsJuliaCheck.splice(-2);
+
+  const dogsCorrect = dogsJuliaCheck.concat(dogsKate);
+
+  dogsCorrect.forEach(function (dogs, i) {
+    /*
+    const adultOrPuppy = dogsCorrect[i] >= 3 ? 'an adult,' : 'still a puppy ';
+    const showAge =
+      adultOrPuppy === 'an adult,' ? `and is ${dogsCorrect[i]} years old` : '';
+    console.log(`Dog number ${i + 1} is ${adultOrPuppy} ${showAge}`);
+    */
+
+    //better like this
+    if (dogs >= 3) {
+      console.log(`Dog number ${i + 1} is an adult, and is ${dogs} years old`);
+    } else {
+      console.log(`Dog number ${i + 1} is still a puppy`);
+    }
+  });
+};
+
+console.log(`TEST DATA 1`);
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+console.log(`TEST DATA 2`);
+checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+//Working With Array
+//Challenge 2
+
+const calcAverageHumanAge = function (ages) {
+  // 1.
+  const humanAge = ages.map(function (age) {
+    if (age <= 2) {
+      return age * 2;
+    } else {
+      return 16 + age * 4;
+    }
+  });
+
+  // 2.
+  const dogsGreaterThan18YearsOld = humanAge.filter(function (age) {
+    return age >= 18;
+  });
+
+  // 3.
+  // const averageAge =
+  //   dogsGreaterThan18YearsOld.reduce(function (acc, age, i, arr) {
+  //     return acc + age;
+  //   }) / dogsGreaterThan18YearsOld.length;
+
+  //Better (3.)
+  const averageAge = dogsGreaterThan18YearsOld.reduce(
+    (acc, age, i, arr) => acc + age / arr.length,
+    0
+  );
+
+  // 2, 3. (2+3)/2 = 2.5 === 2/2 + 3/2 = 2.5
+
+  return `1. ${humanAge}\n2. ${dogsGreaterThan18YearsOld}\n3. ${averageAge}`;
+};
+
+// 4.
+console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
