@@ -61,11 +61,13 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
   // .textContent = ''
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -132,6 +134,7 @@ const updateUI = function (acc) {
 
 //Event handler
 let currentAccount;
+let asd;
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -181,6 +184,22 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // Add movement
+    currentAccount.movements.push(amount);
+
+    //update UI
+    updateUI(currentAccount);
+  }
+
+  inputLoanAmount.value = '';
+});
+
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -188,6 +207,7 @@ btnClose.addEventListener('click', function (e) {
     inputCloseUsername.value === currentAccount.username &&
     Number(inputClosePin.value) === currentAccount.pin
   ) {
+    //The findIndex method
     const index = accounts.findIndex(
       acc => acc.username === currentAccount.username
     );
@@ -201,6 +221,13 @@ btnClose.addEventListener('click', function (e) {
   }
 
   inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 
 /////////////////////////////////////////////////
@@ -456,3 +483,98 @@ for (const acc of accounts) {
   if (acc.owner === 'Jessica Davis') console.log(acc);
 }
 */
+
+/////////////////////////////////////////////////
+// The Some and Every Method
+/////////////////////////////////////////////////
+/*
+// EQUALITY (include method)
+console.log(movements);
+console.log(movements.includes(-130));
+
+// SOME: CONDITION (some method)
+console.log(movements.some(mov => mov === -130));
+
+const anyDeposits = movements.some(mov => mov > 0);
+console.log(anyDeposits);
+
+//EVERY
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+
+// Separate callback
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
+*/
+
+/////////////////////////////////////////////////
+// The flat and flatMap Method
+/////////////////////////////////////////////////
+/*
+// 1 deep nested array
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+// really deep nested array
+// use parameter in flat method how deep is the array you wanna flatten
+const arrDepp = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDepp.flat(2));
+
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements);
+
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+
+// const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(overallBalance);
+
+// flat
+const overallBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance);
+
+//flatMap
+const overallBalance2 = accounts
+  .map(acc => acc.movements)
+  .flatMap()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance2);
+*/
+
+/////////////////////////////////////////////////
+// Sorting arrays
+/////////////////////////////////////////////////
+
+//This method mutate the original array
+//sort()  method sorting based on string
+// Strings
+const owners = ['Mastuty', 'Ayu', 'Prasetya', 'Ningtyas', 'Aditya'];
+console.log(owners.sort());
+console.log(owners);
+
+// Numbers
+console.log(movements);
+
+// return < 0, A, B Ascending (small to large) (keep order)
+// return > 0, B, A Descending (large to small) (switch order)
+
+// Ascending
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (a < b) return -1;
+// });
+movements.sort((a, b) => a - b);
+console.log(movements);
+
+//Descending
+// movements.sort((a, b) => {
+//   if (a > b) return -1;
+//   if (a < b) return 1;
+// });
+movements.sort((a, b) => b - a);
+console.log(movements);
