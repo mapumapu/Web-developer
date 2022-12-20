@@ -644,3 +644,6 @@ const calcAverageHumanAge2 = (ages) =>
 
 console.log(calcAverageHumanAge2([5, 2, 4, 1, 15, 8, 3]));
 console.log(calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]));
+
+//Working With Array
+//Challenge 4
