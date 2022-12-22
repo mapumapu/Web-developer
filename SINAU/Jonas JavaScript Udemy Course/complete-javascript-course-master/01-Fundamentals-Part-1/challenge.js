@@ -647,3 +647,81 @@ console.log(calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]));
 
 //Working With Array
 //Challenge 4
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { weight: 8, curFood: 200, owners: ["Matilda"] },
+  { weight: 13, curFood: 275, owners: ["Sarah", "John"] },
+  { weight: 32, curFood: 340, owners: ["Michael"] },
+];
+
+// 1.
+dogs.forEach(
+  (dog) => (dog.recommendedFood = Math.trunc(dog.weight ** 0.75 * 28))
+);
+console.log(dogs);
+
+// 2.
+const sarahDog = dogs.find((dog) => dog.owners.includes("Sarah"));
+
+if (sarahDog.curFood >= sarahDog.recommendedFood) {
+  console.log("Your dog eat too much");
+} else {
+  console.log("Your dog eat too little");
+}
+
+// Better(2.)
+console.log(sarahDog);
+console.log(
+  `Sarah's dog is eating too ${
+    sarahDog.curFood > sarahDog.recommendedFood ? "much" : "little"
+  }`
+);
+
+// 3.
+const ownersEatTooMuch = dogs
+  .filter((dog) => dog.curFood > dog.recommendedFood)
+  .flatMap((dog) => dog.owners);
+
+const ownersEatTooLittle = dogs
+  .filter((dog) => dog.curFood < dog.recommendedFood)
+  .flatMap((dog) => dog.owners);
+
+console.log(ownersEatTooMuch);
+console.log(ownersEatTooLittle);
+
+// 4.
+console.log(`${ownersEatTooMuch.join(" and ")}'s dogs eat too much`);
+console.log(`${ownersEatTooLittle.join(" and ")}'s dogs eat too litte`);
+
+// 5.
+const exactlyAmountFood = dogs.some(
+  (dog) => dog.curFood === dog.recommendedFood
+);
+console.log(exactlyAmountFood);
+
+// 6.
+const calcOkayFood = (dog) =>
+  dog.curFood > dog.recommendedFood * 0.9 &&
+  dog.curFood < dog.recommendedFood * 1.1;
+
+const okayAmountFood = dogs.some((dog) => calcOkayFood(dog));
+console.log(okayAmountFood);
+
+// 7.
+const okayAmountFoodArray = dogs
+  .filter((dog) => calcOkayFood(dog))
+  .flatMap((dog) => dog.owners);
+console.log(okayAmountFoodArray);
+
+// 8.
+const sortedDogs = dogs
+  .map((dog) => dog)
+  .sort((a, b) => a.recommendedFood - b.recommendedFood);
+console.log(sortedDogs);
+
+// Better/Or (8.)
+const sortedDogs2 = dogs
+  .slice()
+  .sort((a, b) => a.recommendedFood - b.recommendedFood);
+console.log(sortedDogs2);
