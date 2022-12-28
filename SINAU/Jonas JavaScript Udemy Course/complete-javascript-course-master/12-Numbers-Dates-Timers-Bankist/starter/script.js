@@ -51,7 +51,6 @@ const account2 = {
 
 const accounts = [account1, account2];
 
-/////////////////////////////////////////////////
 // Elements
 const labelWelcome = document.querySelector('.welcome');
 const labelDate = document.querySelector('.date');
@@ -78,11 +77,9 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-/////////////////////////////////////////////////
-// Functions
-
 const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
+  // .textContent = ''
 
   const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
@@ -90,13 +87,10 @@ const displayMovements = function (movements, sort = false) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
-      <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${
-      i + 1
-    } ${type}</div>
-        <div class="movements__value">${mov}€</div>
-      </div>
-    `;
+  <div class="movements__row">
+    <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+    <div class="movements__value">${mov.toFixed(2)} EUR</div>
+  </div>`;
 
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
@@ -104,29 +98,32 @@ const displayMovements = function (movements, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance}€`;
+  labelBalance.textContent = `${acc.balance.toFixed(2)} EUR`;
 };
 
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes}€`;
 
-  const out = acc.movements
+  labelSumIn.textContent = `${incomes.toFixed(2)} EUR`;
+
+  const outcomes = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  labelSumOut.textContent = `${Math.abs(outcomes).toFixed(2)} EUR`;
 
   const interest = acc.movements
     .filter(mov => mov > 0)
     .map(deposit => (deposit * acc.interestRate) / 100)
-    .filter((int, i, arr) => {
+    .filter((interest, i, arr) => {
       // console.log(arr);
-      return int >= 1;
+      return interest >= 1;
     })
-    .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest}€`;
+    .reduce((acc, interest) => acc + interest, 0);
+
+  labelSumInterest.textContent = `${interest.toFixed(2)} EUR`;
 };
 
 const createUsernames = function (accs) {
@@ -151,9 +148,9 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
-///////////////////////////////////////
-// Event handlers
+//Event handler
 let currentAccount;
+let asd;
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -164,25 +161,25 @@ btnLogin.addEventListener('click', function (e) {
   );
   console.log(currentAccount);
 
-  if (currentAccount?.pin === Number(inputLoginPin.value)) {
-    // Display UI and message
+  if (currentAccount?.pin === +inputLoginPin.value) {
+    // Display UI and welcome message
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100;
 
-    // Clear input fields
+    // Clear the input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
-    // Update UI
+    // update UI
     updateUI(currentAccount);
   }
 });
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
-  const amount = Number(inputTransferAmount.value);
+  const amount = +inputTransferAmount.value;
   const receiverAcc = accounts.find(
     acc => acc.username === inputTransferTo.value
   );
@@ -194,11 +191,11 @@ btnTransfer.addEventListener('click', function (e) {
     currentAccount.balance >= amount &&
     receiverAcc?.username !== currentAccount.username
   ) {
-    // Doing the transfer
+    //Doing the transfer
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
-    // Update UI
+    // update UI
     updateUI(currentAccount);
   }
 });
@@ -206,15 +203,16 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
     currentAccount.movements.push(amount);
 
-    // Update UI
+    //update UI
     updateUI(currentAccount);
   }
+
   inputLoanAmount.value = '';
 });
 
@@ -223,18 +221,18 @@ btnClose.addEventListener('click', function (e) {
 
   if (
     inputCloseUsername.value === currentAccount.username &&
-    Number(inputClosePin.value) === currentAccount.pin
+    +inputClosePin.value === currentAccount.pin
   ) {
+    //The findIndex method
     const index = accounts.findIndex(
       acc => acc.username === currentAccount.username
     );
     console.log(index);
-    // .indexOf(23)
 
-    // Delete account
+    // delete account
     accounts.splice(index, 1);
 
-    // Hide UI
+    //hide UI
     containerApp.style.opacity = 0;
   }
 
@@ -251,3 +249,103 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+/////////////////////////////////////////////////
+// Converting and Checking Numbers
+/////////////////////////////////////////////////
+/*
+console.log(23 === 23.0); //true
+// Base 10 - 0 to 9
+// Binary base 2 - 0 1
+console.log(0.1 + 0.2); //0.30000000000000004
+console.log(0.1 + 0.2 === 0.3); //false
+
+// convert string to number
+console.log(Number('23'));
+// more simple
+console.log(+'23');
+
+// Parsing
+console.log(Number.parseInt('30px', 10));
+console.log(Number.parseInt('e23', 10));
+
+console.log(Number.parseInt('     2.5rem     '));
+console.log(Number.parseFloat('2.5rem'));
+
+// old school way
+// console.log(parseFloat('2.5rem'));
+
+// Check if value is NaN
+console.log(Number.isNaN(20)); //false
+console.log(Number.isNaN('20')); //false
+console.log(Number.isNaN(+'20x')); //true
+console.log(Number.isNaN(23 / 0)); //false
+
+// Check if value is real number not string
+console.log(Number.isFinite(20)); //true
+console.log(Number.isFinite('20')); //false
+console.log(Number.isFinite('20x')); //false //NaN
+console.log(Number.isFinite(23 / 0)); //false //Infinity
+
+console.log(Number.isInteger(23)); //true
+console.log(Number.isInteger(23.0)); //true
+console.log(Number.isInteger(23 / 0)); //false
+*/
+/////////////////////////////////////////////////
+// Math and Rounding
+/////////////////////////////////////////////////
+/*
+//Math
+//Sqrt(square root)
+console.log(Math.sqrt(25)); //5
+console.log(25 ** (1 / 2)); //5
+console.log(8 ** (1 / 3)); //2
+
+//Max
+console.log(Math.max(5, 18, 23, 11, 2)); //23
+console.log(Math.max(5, 18, '23', 11, 2)); //23
+console.log(Math.max(5, 18, '23px', 11, 2)); //NaN
+
+//Min
+console.log(Math.min(5, 18, 23, 11, 2)); //2
+
+//Math PI
+console.log(Math.PI * Number.parseFloat('10px') ** 2); //314.15
+
+console.log(Math.trunc(Math.random() * 6) + 1);
+
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min) + 1) + min;
+//0...1 -> 0...(max-min) -> min...max
+console.log(randomInt(10, 20));
+
+//Rounding integers
+//trunc
+console.log(Math.trunc(23.3)); //23
+
+//round
+console.log(Math.round(23.2)); //23
+console.log(Math.round(23.6)); //24
+
+//ceil
+console.log(Math.ceil(23.3)); //24
+console.log(Math.ceil(23.6)); //24
+
+//floor
+console.log(Math.floor(23.3)); //23
+console.log(Math.floor('23.6')); //23
+
+console.log(Math.trunc(23.3));
+
+//floor better than trunc
+console.log(Math.trunc(-23.3)); //-23
+console.log(Math.floor(-23.3)); //-24
+
+//rounding decimals
+
+//toFixed always return string
+console.log((2.7).toFixed(0)); //3(string)
+console.log((2.7).toFixed(3)); //2.700(string)
+console.log((2.345).toFixed(2)); //2.35(string)
+console.log(+(2.345).toFixed(2)); //2.35(number)
+*/
