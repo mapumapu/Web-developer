@@ -1,12 +1,15 @@
 'use strict';
 
-///////////////////////////////////////
-// Modal window
-
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+///////////////////////////////////////
+// Modal window
+///////////////////////////////////////
 
 const openModal = function (e) {
   e.preventDefault();
@@ -30,6 +33,69 @@ overlay.addEventListener('click', closeModal);
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeModal();
+  }
+});
+
+////////////////////////////////////////////
+// Implementing Smooth Scrolling
+////////////////////////////////////////////
+
+btnScrollTo.addEventListener('click', function (e) {
+  // Old ways
+  // const section1Coordinate = section1.getBoundingClientRect();
+
+  // Scrolling
+  // window.scrollTo(
+  //   section1Coordinate.left + window.pageXOffset,
+  //   section1Coordinate.top + window.pageYOffset
+  // );
+
+  // window.scrollTo({
+  //   left: section1Coordinate.left + window.pageXOffset,
+  //   top: section1Coordinate.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  // logging for testing
+  // console.log(section1Coordinate);
+  // console.log(e.target.getBoundingClientRect());
+  // console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+  // console.log(
+  //   'height/width viewport',
+  //   document.documentElement.clientHeight,
+  //   document.documentElement.clientWidth
+  // );
+
+  // New ways (only support modern browser)
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+////////////////////////////////////////////
+// Event Delegation: Implementing Page Navigation
+////////////////////////////////////////////
+
+// Smooth scrolling
+
+// Not effective
+// document.querySelectorAll('.nav__link').forEach(function (element) {
+//   element.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     const id = this.getAttribute('href');
+//     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+//   });
+// });
+
+// Better
+// 1. add event listener to common parent element
+// 2. Determine what element originated the event
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  e.preventDefault();
+
+  //Matching strategy
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
 });
 
@@ -128,48 +194,12 @@ logo.classList.contains('A');
 */
 
 ////////////////////////////////////////////
-// Implementing Smooth Scrolling
-////////////////////////////////////////////
-
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
-btnScrollTo.addEventListener('click', function (e) {
-  // Old ways
-  // const section1Coordinate = section1.getBoundingClientRect();
-
-  // Scrolling
-  // window.scrollTo(
-  //   section1Coordinate.left + window.pageXOffset,
-  //   section1Coordinate.top + window.pageYOffset
-  // );
-
-  // window.scrollTo({
-  //   left: section1Coordinate.left + window.pageXOffset,
-  //   top: section1Coordinate.top + window.pageYOffset,
-  //   behavior: 'smooth',
-  // });
-
-  // logging for testing
-  // console.log(section1Coordinate);
-  // console.log(e.target.getBoundingClientRect());
-  // console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
-  // console.log(
-  //   'height/width viewport',
-  //   document.documentElement.clientHeight,
-  //   document.documentElement.clientWidth
-  // );
-
-  // New ways (only support modern browser)
-  section1.scrollIntoView({ behavior: 'smooth' });
-});
-
-////////////////////////////////////////////
 // Types of Events and Event Handlers
 ////////////////////////////////////////////
 // see MDN doc for more events
 // important is the mouse and the keyboard
 
+/*
 const h1 = document.querySelector('h1');
 
 const alertH1 = function (e) {
@@ -187,3 +217,39 @@ setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 // h1.onmouseenter = function (e) {
 //   alert('onmouseenter: Great! You are reading the heading');
 // };
+*/
+////////////////////////////////////////////
+// Event Propagation in Practice
+////////////////////////////////////////////
+/*
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log(e.target);
+
+  // Stop propagation
+  // e.stopPropagation();
+});
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log(e.target);
+
+  // e.stopPropagation();
+});
+
+document.querySelector('.nav').addEventListener(
+  'click',
+  function (e) {
+    this.style.backgroundColor = randomColor();
+    console.log(e.target);
+
+    // e.stopPropagation();
+  }
+  // ,true //default is false
+);
+*/
