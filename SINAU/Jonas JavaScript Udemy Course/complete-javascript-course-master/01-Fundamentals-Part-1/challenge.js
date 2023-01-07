@@ -725,3 +725,74 @@ const sortedDogs2 = dogs
   .slice()
   .sort((a, b) => a.recommendedFood - b.recommendedFood);
 console.log(sortedDogs2);
+
+// Object Oriented Programming (OOP)
+// Challenge 1
+
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} going at ${this.speed} km/h`);
+};
+
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(`${this.make} going at ${this.speed} km/h`);
+};
+
+const car1 = new Car("BMW", 120);
+const car2 = new Car("Mercedes", 95);
+
+car1.accelerate();
+car1.accelerate();
+car1.accelerate();
+car1.brake();
+car1.brake();
+
+car2.accelerate();
+car2.accelerate();
+car2.accelerate();
+car2.brake();
+car2.brake();
+
+// Object Oriented Programming (OOP)
+// Challenge 2
+
+class CarClass {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  acceletare() {
+    this.speed += 10;
+    console.log(`${this.make} going at ${this.speed} km/h`);
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} going at ${this.speed} km/h`);
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+const ford = new CarClass("Ford", 120);
+
+ford.acceletare();
+ford.brake();
+// getter
+console.log(ford.speedUS);
+// setter
+ford.speedUS = 50;
+console.log(ford);
