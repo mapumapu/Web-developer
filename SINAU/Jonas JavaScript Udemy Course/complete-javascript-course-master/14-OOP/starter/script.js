@@ -87,10 +87,12 @@ console.log(arr.unique());
 const h1 = document.querySelector('h1');
 console.dir(x => x + 1);
 */
+
 /////////////////////////////////////////////
 // ES6 Classes
 /////////////////////////////////////////////
 /*
+
 // class expression
 // const PersonClass = class {}
 
@@ -214,14 +216,244 @@ sarah.calcAge();
 */
 
 /////////////////////////////////////////////
-// Constructor Functions and the new Operator
+// Inheritance Between "Classes": Constructor Functions
 /////////////////////////////////////////////
+
+/*
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2022 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  // this.firstName = firstName;
+  // this.birthYear = birthYear;
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+// Linking prototype
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const aditya = new Student('Aditya', 1996, 'Sistem Informasi');
+aditya.introduce();
+aditya.calcAge();
+
+console.log(aditya.__proto__);
+console.log(aditya.__proto__.__proto__);
+
+console.log(aditya instanceof Student);
+console.log(aditya instanceof Person);
+console.log(aditya instanceof Object);
+
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor);
+*/
+
 /////////////////////////////////////////////
-// Constructor Functions and the new Operator
+// Inheritance Between "Classes": ES6 Classes
 /////////////////////////////////////////////
+
+/*
+class PersonClass {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+  fullName;
+
+  // Method will be added to .prototype property
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+
+  // set a property that already exist
+  get age() {
+    return 2022 - this.birthYear;
+  }
+
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  // static method
+  static hey() {
+    console.log('Hey Haiya');
+    console.log(this);
+  }
+}
+
+// Inheritance
+class StudentClass extends PersonClass {
+  constructor(fullName, birthYear, course) {
+    // Always need to happen first!
+    super(fullName, birthYear);
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+
+  calcAge() {
+    console.log(
+      `I'm ${
+        2022 - this.birthYear
+      } years old, but as a student I feel more like ${
+        2022 - this.birthYear + 10
+      }`
+    );
+  }
+}
+
+const mastuty = new StudentClass('Mastuty', 1997, 'Sistem Informasi');
+mastuty.introduce();
+mastuty.calcAge();
+*/
+
 /////////////////////////////////////////////
-// Constructor Functions and the new Operator
+// Inheritance Between "Classes": Object.create
 /////////////////////////////////////////////
+
+/*
+const PersonPrototype = {
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonPrototype);
+
+const StudentPrototype = Object.create(PersonPrototype);
+
+StudentPrototype.init = function (firstName, birthYear, course) {
+  PersonPrototype.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentPrototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const jay = Object.create(StudentPrototype);
+jay.init('Jay', 1993, 'Sisfor');
+jay.introduce();
+jay.calcAge();
+*/
+
 /////////////////////////////////////////////
-// Constructor Functions and the new Operator
+// Another Class Example
 /////////////////////////////////////////////
+// Encapsulation: Protected Properties and Methods
+/////////////////////////////////////////////
+// Encapsulation: Private Class Fields and Methods
+/////////////////////////////////////////////
+
+/*
+// 1. Public fields
+// 2. Private fields
+// 3. Public methods
+// 4. Private methods
+// (there is also the static version)
+
+class Account {
+  // 1. Public fields (instances)
+  locale = navigator.language;
+
+  // 2. Private fields (instances)
+  #movements = [];
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    // Protected property
+    this.#pin = pin;
+    // this._movements = [];
+    // this.locale = navigator.language;
+
+    console.log(`Thanks for opening and account, ${owner}`);
+  }
+
+  // 3. Public methods
+  // Public interface
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposit(value) {
+    this.#movements.push(value);
+    // for chaining
+    return this;
+  }
+
+  withdraw(value) {
+    this.deposit(-value);
+    // for chaining
+    return this;
+  }
+
+  requestLoan(value) {
+    if (this._approveLoan(value)) {
+      this.deposit(value);
+      console.log(`Loan Approved`);
+      // for chaining
+      return this;
+    }
+  }
+
+  static helper() {
+    console.log(`Help!`);
+  }
+
+  // 4. Private methods
+  // #approveLoan(value) {
+  _approveLoan(value) {
+    return true;
+  }
+}
+
+const acc1 = new Account('Aditya', 'IDR', 9999);
+
+// acc1.movements.push(2500);
+// acc1.movements.push(-1500);
+acc1.deposit(2500);
+acc1.withdraw(1400);
+acc1.requestLoan(1000);
+console.log(acc1.getMovements());
+console.log(acc1);
+Account.helper();
+
+// console.log(acc1.#movements);
+// console.log(acc1.#pin);
+// console.log(acc1.#approveLoad(1000));
+
+/////////////////////////////////////////////
+// Chaining Methods
+/////////////////////////////////////////////
+
+acc1.deposit(300).deposit(500).withdraw(123).requestLoan(1999).withdraw(4000);
+console.log(acc1.getMovements());
+*/

@@ -768,7 +768,7 @@ class CarClass {
     this.speed = speed;
   }
 
-  acceletare() {
+  accelerate() {
     this.speed += 10;
     console.log(`${this.make} going at ${this.speed} km/h`);
   }
@@ -789,10 +789,82 @@ class CarClass {
 
 const ford = new CarClass("Ford", 120);
 
-ford.acceletare();
+ford.accelerate();
 ford.brake();
 // getter
 console.log(ford.speedUS);
 // setter
 ford.speedUS = 50;
 console.log(ford);
+
+// Object Oriented Programming (OOP)
+// Challenge 3
+
+const ElectricCar = function (make, speed, charge) {
+  Car.call(this, make, speed);
+  this.charge = charge;
+};
+
+ElectricCar.prototype = Object.create(Car.prototype);
+
+ElectricCar.prototype.chargeBattery = function (chargeTo) {
+  this.charge = chargeTo;
+};
+
+ElectricCar.prototype.accelerate = function () {
+  this.speed += 20;
+  this.charge -= 1;
+  console.log(
+    `${this.make} going at ${this.speed}km/h, with a charge of ${this.charge}%`
+  );
+};
+
+const tesla = new ElectricCar("Telsa", 120, 23);
+tesla.accelerate();
+tesla.accelerate();
+tesla.accelerate();
+tesla.chargeBattery(90);
+tesla.accelerate();
+tesla.brake();
+tesla.brake();
+tesla.brake();
+
+// Object Oriented Programming (OOP)
+// Challenge 4
+
+class ElectricCarClass extends CarClass {
+  // make it private fields
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+
+  accelerate() {
+    this.speed += 20;
+    this.#charge -= 1;
+
+    console.log(
+      `${this.make} going at ${this.speed}km/h, with a charge of ${
+        this.#charge
+      }%`
+    );
+    return this;
+  }
+}
+
+const rivian = new ElectricCarClass("Rivian", 120, 23);
+rivian
+  .accelerate()
+  .brake()
+  .accelerate()
+  .accelerate()
+  .chargeBattery(90)
+  .accelerate()
+  .brake()
+  .accelerate();
