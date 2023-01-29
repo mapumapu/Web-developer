@@ -165,7 +165,6 @@ const getCountryData = function (country) {
   // Country 1
   getJSON(`https://restcountries.com/v3.1/name/${country}`, 'Country not found')
     .then(data => {
-      console.log(data);
       renderCountry(data[0]);
       const neighbour = data[0].borders[0];
       if (!neighbour) throw new Error('No neighbour found!');
@@ -185,6 +184,10 @@ const getCountryData = function (country) {
       countriesContainer.style.opacity = 1;
     });
 };
+
+btn.addEventListener('click', function () {
+  getCountryData('indonesia');
+});
 */
 
 // const getCountryData = function (country) {
@@ -209,10 +212,134 @@ const getCountryData = function (country) {
 //     });
 // };
 
-// btn.addEventListener('click', function () {
-//   getCountryData('indonesia');
-// });
-
 /////////////////////////////////////////////
 // The Event Loop in Practice
 /////////////////////////////////////////////
+
+/*
+// 1
+console.log(`Test start`);
+// 4
+setTimeout(() => console.log('0 sec timer'), 0);
+// 3
+Promise.resolve('Resolved promise 1').then(response => console.log(response));
+
+Promise.resolve('Resolved promise 2').then(response => {
+  for (let i = 0; i < 1000000000; i++) {}
+  console.log(response);
+});
+// 2
+console.log(`Test end`);
+*/
+
+/////////////////////////////////////////////
+// Build a Simple Promise
+/////////////////////////////////////////////
+
+/*
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lottery draw is happening...');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN!');
+    } else {
+      reject(new Error('You LOSE!'));
+    }
+  }, 2000);
+});
+
+lotteryPromise
+  .then(response => console.log(response))
+  .catch(error => console.error(error));
+
+// Promisifying setTimeout (Real world example)
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(1)
+  .then(() => {
+    console.log('1 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('2 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('3 second passed');
+    return wait(1);
+  })
+  .then(() => console.log('4 second passed'));
+
+*/
+
+// Same as this but above is better
+/*
+setTimeout(() => {
+  console.log('1 second passed');
+  setTimeout(() => {
+    console.log('2 seconds passed');
+    setTimeout(() => {
+      console.log('3 second passed');
+      setTimeout(() => {
+        console.log('4 second passed');
+      }, 1000);
+    }, 1000);
+  }, 1000);
+}, 1000);
+*/
+
+// Promise.resolve('123').then(x => console.log(x));
+// Promise.reject(new Error('Problem!')).catch(x => console.error(x));
+
+/////////////////////////////////////////////
+// Promisifying the Geolocation API
+/////////////////////////////////////////////
+
+/*
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   position => resolve(position),
+    //   error => reject(error)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+getPosition().then(position => console.log(position));
+
+const whereAmI = function () {
+  getPosition()
+    .then(position => {
+      const { latitude, longitude } = position.coords;
+
+      return fetch(
+        `https://geocode.xyz/${latitude},${longitude}?geoit=json&auth=227040645600541812098x37491`
+      );
+    })
+    .then(response => {
+      if (!response.ok)
+        throw new Error(`Problem with geocoding ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      console.log(`You are in ${data.city}, ${data.country}`);
+
+      return fetch(`https://restcountries.com/v3.1/name/${data.country}`);
+    })
+    .then(response => {
+      if (!response.ok)
+        throw new Error(`Country not found (${response.status})`);
+
+      return response.json();
+    })
+    .then(data => renderCountry(data[0]))
+    .catch(error => console.error(`Something went wrong ${error.message}`));
+};
+
+btn.addEventListener('click', whereAmI);
+*/
