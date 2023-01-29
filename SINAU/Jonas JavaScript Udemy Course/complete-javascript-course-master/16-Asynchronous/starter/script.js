@@ -128,6 +128,15 @@ setTimeout(() => {
 /////////////////////////////////////////////
 // Promises and the Fetch API
 /////////////////////////////////////////////
+// Consuming Promises
+/////////////////////////////////////////////
+// Chaining Promises
+/////////////////////////////////////////////
+// Handling Rejected Promises
+/////////////////////////////////////////////
+// Throwing Errors Manually
+/////////////////////////////////////////////
+
 /*
 const request = fetch(`https://restcountries.com/v3.1/name/indonesia`);
 */
@@ -177,6 +186,7 @@ const getCountryData = function (country) {
     });
 };
 */
+
 // const getCountryData = function (country) {
 //   // Country 1
 //   fetch(`https://restcountries.com/v3.1/name/${country}`)
@@ -202,3 +212,7 @@ const getCountryData = function (country) {
 // btn.addEventListener('click', function () {
 //   getCountryData('indonesia');
 // });
+
+/////////////////////////////////////////////
+// The Event Loop in Practice
+/////////////////////////////////////////////
