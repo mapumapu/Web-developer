@@ -343,3 +343,39 @@ const whereAmI = function () {
 
 btn.addEventListener('click', whereAmI);
 */
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+const imageContainer = document.querySelector('.images');
+
+const createImage = function (imgPath) {
+  return new Promise(function (resolve, reject) {
+    const image = document.createElement('img');
+    image.src = imgPath;
+
+    image.addEventListener('load', function () {
+      imageContainer.append(image);
+      resolve(image);
+    });
+
+    image.addEventListener('error', function () {
+      reject(new Error('Image not found'));
+    });
+  });
+};
+
+createImage('img/img-1.jpg')
+  .then(response => {
+    if (!response.ok) new Error(`Something went wrong (${response.status})`);
+  })
+  .then(() => wait(2))
+  .then(() => (imageContainer.style.display = 'none'))
+  .then(() => wait(2))
+  .then(() => (imageContainer.style.display = 'flex'))
+  .then(() => createImage('img/img-2.jpg'))
+  .then(() => wait(2))
+  .then(() => (imageContainer.style.display = 'none'));
