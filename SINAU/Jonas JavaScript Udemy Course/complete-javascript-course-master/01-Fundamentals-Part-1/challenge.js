@@ -872,7 +872,7 @@ rivian
 // Asynchronous Javascript
 // Challenge 1
 
-const renderCountry = function (data, className = '') {
+const renderCountry = function (data, className = "") {
   const html = `
      <article class="country ${className}">
   <img class="country__img" src="${data.flags.png}" />
@@ -889,7 +889,7 @@ const renderCountry = function (data, className = '') {
     </div>
     </article>`;
 
-  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.insertAdjacentHTML("beforeend", html);
   countriesContainer.style.opacity = 1;
 };
 
@@ -920,3 +920,52 @@ const whereAmI = function (latitude, longitude) {
 whereAmI(52.508, 13.381);
 // whereAmI(19.037, 72.873);
 // whereAmI(-33.933, 18.474);
+
+// Asynchronous Javascript
+// Challenge 2
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+const imageContainer = document.querySelector(".images");
+
+const createImage = function (imgPath) {
+  return new Promise(function (resolve, reject) {
+    const image = document.createElement("img");
+    image.src = imgPath;
+
+    image.addEventListener("load", function () {
+      imageContainer.append(image);
+      resolve(image);
+    });
+
+    image.addEventListener("error", function () {
+      reject(new Error("Image not found"));
+    });
+  });
+};
+
+let currentImage;
+
+createImage("img/img-1.jpg")
+  .then((img) => {
+    currentImage = img;
+    console.log("Image 1 loaded");
+    return wait(2);
+  })
+  .then(() => {
+    currentImage.style.display = "none";
+    return createImage("img/img-2.jpg");
+  })
+  .then((img) => {
+    currentImage = img;
+    console.log("Image 2 loaded");
+    return wait(2);
+  })
+  .then(() => {
+    currentImage.style.display = "none";
+  })
+  .catch((error) => console.log(error));
