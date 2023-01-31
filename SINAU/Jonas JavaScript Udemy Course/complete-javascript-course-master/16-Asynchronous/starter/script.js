@@ -344,38 +344,122 @@ const whereAmI = function () {
 btn.addEventListener('click', whereAmI);
 */
 
-const wait = function (seconds) {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, seconds * 1000);
-  });
-};
-
-const imageContainer = document.querySelector('.images');
-
-const createImage = function (imgPath) {
+/////////////////////////////////////////////
+// Consuming Promises with Async/Await (Modern ways)
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+// Error Handling With try...catch
+/////////////////////////////////////////////
+/*
+const getPosition = function () {
   return new Promise(function (resolve, reject) {
-    const image = document.createElement('img');
-    image.src = imgPath;
-
-    image.addEventListener('load', function () {
-      imageContainer.append(image);
-      resolve(image);
-    });
-
-    image.addEventListener('error', function () {
-      reject(new Error('Image not found'));
-    });
+    navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 };
 
-createImage('img/img-1.jpg')
-  .then(response => {
-    if (!response.ok) new Error(`Something went wrong (${response.status})`);
-  })
-  .then(() => wait(2))
-  .then(() => (imageContainer.style.display = 'none'))
-  .then(() => wait(2))
-  .then(() => (imageContainer.style.display = 'flex'))
-  .then(() => createImage('img/img-2.jpg'))
-  .then(() => wait(2))
-  .then(() => (imageContainer.style.display = 'none'));
+const whereAmI = async function (country) {
+  // Geolocation
+  try {
+    const position = await getPosition();
+    const { latitude, longitude } = position.coords;
+
+    // Reverse geocoding
+    const responseGeo = await fetch(
+      `https://geocode.xyz/${latitude},${longitude}?geoit=json&auth=227040645600541812098x37491`
+    );
+    if (!responseGeo.ok) throw new Error('Problem getting location data');
+
+    const dataGeo = await responseGeo.json();
+
+    // Contry Data
+    const responseCountry = await fetch(
+      `https://restcountries.com/v3.1/name/${dataGeo.country}`
+    );
+    if (!responseCountry.ok) throw new Error('Problem getting country');
+
+    const dataCountry = await responseCountry.json();
+    renderCountry(dataCountry[0]);
+
+    return `You are in ${dataGeo.city}, ${dataGeo.country}`;
+  } catch (error) {
+    console.error(error.message);
+    renderError(error.message);
+
+    // Reject promise returned from async function
+    throw error;
+  }
+};
+*/
+
+// simple simulation try catch
+// try {
+//   let y = 1;
+//   const x = 2;
+//   x = 3;
+// } catch (error) {
+//   alert(error.message);
+// }
+
+/////////////////////////////////////////////
+// Returning Values from Async Functions
+/////////////////////////////////////////////
+
+/*
+console.log('1. Will get location');
+// const city = whereAmI();
+// console.log(city);
+
+// whereAmI()
+//   .then(city => console.log(`2. ${city}`))
+//   .catch(error => console.log(`2. ${error.message}`))
+//   .finally(() => console.log('3. Finished getting location'));
+
+(async function () {
+  try {
+    const city = await whereAmI();
+    console.log(`2. ${city}`);
+  } catch (error) {
+    console.error(`2. ${error.message}`);
+  }
+  console.log('3. Finished getting location');
+})();
+*/
+
+/////////////////////////////////////////////
+// Running Promises in Parallel
+/////////////////////////////////////////////
+
+/*
+const getJSON = function (url, errorMessage = 'Something went wrong') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMessage} (${response.status})`);
+
+    return response.json();
+  });
+};
+
+const get3Countries = async function (c1, c2, c3) {
+  try {
+    // will loaded
+    // const [data1] = await getJSON(`https://restcountries.com/v3.1/name/${c1}`);
+    // const [data2] = await getJSON(`https://restcountries.com/v3.1/name/${c2}`);
+    // const [data3] = await getJSON(`https://restcountries.com/v3.1/name/${c3}`);
+
+    // will loaded in same time
+    const data = await Promise.all([
+      getJSON(`https://restcountries.com/v3.1/name/${c1}`),
+      getJSON(`https://restcountries.com/v3.1/name/${c2}`),
+      getJSON(`https://restcountries.com/v3.1/name/${c3}`),
+    ]);
+
+    console.log(data.map(d => d[0].capital).map(d => d[0]));
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+get3Countries('indonesia', 'thailand', 'malaysia');
+*/
+
+/////////////////////////////////////////////
+// Other Promise Combinators: race, allSettled and any
+/////////////////////////////////////////////
