@@ -932,6 +932,7 @@ const wait = function (seconds) {
 
 const imageContainer = document.querySelector(".images");
 
+// PART 1
 const createImage = function (imgPath) {
   return new Promise(function (resolve, reject) {
     const image = document.createElement("img");
@@ -948,6 +949,7 @@ const createImage = function (imgPath) {
   });
 };
 
+// PART 2
 let currentImage;
 
 createImage("img/img-1.jpg")
@@ -969,3 +971,41 @@ createImage("img/img-1.jpg")
     currentImage.style.display = "none";
   })
   .catch((error) => console.log(error));
+
+// Asynchronous Javascript
+// Challenge 3
+
+// PART 1
+const loadNPause = async function () {
+  try {
+    // Load image 1
+    let image = await createImage("img/img-1.jpg");
+    console.log("Image 1 loaded");
+    await wait(2);
+    image.style.display = "none";
+
+    // Load image 2
+    image = await createImage("img/img-2.jpg");
+    console.log("Image 2 loaded");
+    await wait(2);
+    image.style.display = "none";
+  } catch (error) {
+    console.log(error);
+  }
+};
+// loadNPause();
+
+//PART 2
+const loadAll = async function (imageArray) {
+  try {
+    const images = imageArray.map(async (img) => await createImage(img));
+    console.log(images);
+
+    const imagesEl = await Promise.all(images);
+    console.log(imagesEl);
+    imagesEl.forEach((img) => img.classList.add("parallel"));
+  } catch (error) {
+    console.log(error);
+  }
+};
+loadAll(["img/img-1.jpg", "img/img-2.jpg", "img/img-3.jpg"]);
