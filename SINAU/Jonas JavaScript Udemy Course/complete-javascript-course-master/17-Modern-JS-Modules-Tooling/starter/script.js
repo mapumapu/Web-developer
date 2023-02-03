@@ -128,6 +128,6 @@ const stateClone = Object.assign({}, state);
 state.user.loggedIn = false;
 console.log(stateClone);
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
+if (module.hot) {
+  module.hot.accept();
+}
