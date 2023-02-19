@@ -26,4 +26,48 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
+
+// Destructuring Array
+/*
+const arr = [2, 3, 4];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+
+const [d, e, f] = arr;
+console.log(d);
+console.log(e);
+console.log(f);
+
+const [first, second] = restaurant.mainMenu; // only take the first 2 element
+const [first2, , third] = restaurant.categories; // only take first and third element
+console.log(first, second);
+console.log(first2, third);
+console.log(restaurant.mainMenu);
+
+// Switching variable
+let [main, , secondary] = restaurant.categories;
+console.log(main, secondary);
+[main, secondary] = [secondary, main]; // switching variable
+console.log(main, secondary);
+
+// Receive 2 return values from a function
+const [starter, mainMenu] = restaurant.order(2, 0);
+console.log(starter, mainMenu);
+
+// Nested Array Destructuring
+const nested = [2, 3, [4, 5]];
+// const [i, , j] = nested;
+// console.log(i, j);
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+
+// Default values
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
+*/
