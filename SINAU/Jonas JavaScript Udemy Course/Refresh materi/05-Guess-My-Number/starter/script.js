@@ -49,8 +49,6 @@ checkBtn.addEventListener('click', function () {
       highscore = score;
       displayHighScore.textContent = highscore;
     }
-
-    // too high
   } else if (guess !== secrectNumber) {
     if (score > 1) {
       displayMessage(guess > secrectNumber ? 'Too High!' : 'Too Low!');
@@ -64,8 +62,6 @@ checkBtn.addEventListener('click', function () {
 
       changeBackgroundColor('red');
     }
-
-    // too low
   }
 });
 
